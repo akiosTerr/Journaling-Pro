@@ -1,0 +1,50 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.Container{
+  display:block;
+}
+
+.todoFlex{
+  background: rgb(209, 202, 202);
+  display: flex;
+  flex-flow: column nowrap;
+  width: 20rem;
+  margin: 10px auto;
+	border: 1px solid rgb(0, 0, 0);
+}
+
+.RepItem{
+  border: 2px black solid ;
+  background: rgb(39, 179, 211);
+  width: 15rem;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  margin: 5px auto;
+  line-height: 1.7;
+}
+
+.cbox {
+  width: 20px; 
+  height: 20px; 
+  margin: auto .7em;
+}
+
+.btnDelete {
+  background: #ff0000;
+  color: #fff;
+  cursor: pointer;
+  border: none;
+  border-radius: 50%;
+  padding: 5px 8px;
+  margin: auto .7em;
+}
+
+.btnDelete:hover {
+  border: 1px black solid;
+}
+
