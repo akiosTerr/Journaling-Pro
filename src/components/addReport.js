@@ -4,11 +4,9 @@ export default class AddReport extends Component {
 	render() {
 		return (
 			<form className='form-style'>
-				<input
-					id='report'
-					type='text'
-					name='report'
-					placeholder='write your day report ...'></input>
+				<p id='date-p'>07/08/1997 13:49</p>
+				<textarea id='report' />
+
 				<input id='subbtn' type='submit' value='Submit'></input>
 			</form>
 		);

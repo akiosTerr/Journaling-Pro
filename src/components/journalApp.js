@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './style/journalApp.css';
 import Header from './layout/HeaderJournal';
 import AddReport from './addReport';
+import AppTodo from './todoApp';
 
 class App extends Component {
 	state = {
@@ -14,6 +15,7 @@ class App extends Component {
 				<div className='mainreport'>
 					<AddReport></AddReport>
 				</div>
+				<AppTodo />
 			</div>
 		);
 	}

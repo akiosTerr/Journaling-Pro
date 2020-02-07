@@ -3,7 +3,7 @@ import Todos from './todos';
 import Header from './layout/HeaderTodo';
 import './style/todoApp.css';
 
-class App extends Component {
+class AppTodo extends Component {
 	state = {
 		todos: [
 			{ id: 0, content: 'UI/UX design', completed: false },
@@ -47,4 +47,4 @@ class App extends Component {
 		);
 	}
 }
-export default App;
+export default AppTodo;
