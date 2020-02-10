@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Todos from './todos';
 import AddTodo from './addTodo';
-import UUID from 'uuid';
 import './style/todoApp.css';
 import uuid from 'uuid';
 

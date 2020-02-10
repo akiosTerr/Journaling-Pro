@@ -10,7 +10,7 @@ class TodoItem extends Component {
 	render() {
 		const { content, id } = this.props.todo;
 		return (
-			<div className='RepItem'>
+			<div className='todoItem'>
 				<input
 					className='cbox'
 					type='checkbox'

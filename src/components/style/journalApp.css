@@ -10,12 +10,11 @@ body {
 }
 
 .wrapper {
-    
+    margin: auto;
 }
 
 .mainreport {
-    grid-template-columns: 1fr 1fr 1fr;
-    display: grid;
+   display: block;
 }
 
 .form-style {
@@ -27,7 +26,13 @@ body {
     background-color: #a0a0a0;
     width: 5%;
     min-width: 300px;
+}
 
+.reportItem {
+    text-align: center;
+    background-color: blanchedalmond;
+    margin: 1em auto;
+    width: 40%;
 }
 
 #date-p {
@@ -37,7 +42,7 @@ body {
     margin: 3px;
 }
 
-#report {
+#report-text {
     width: 90%;
     height: 100px;
     font-size: 1.2em;

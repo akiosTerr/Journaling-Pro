@@ -4,11 +4,11 @@
   padding: 0;
 }
 
-.Container{
+.Container {
   display:block;
 }
 
-.todoFlex{
+.todoFlex {
   background: rgb(209, 202, 202);
   display: flex;
   flex-flow: column nowrap;
@@ -17,7 +17,7 @@
 	border: 1px solid rgb(0, 0, 0);
 }
 
-.RepItem{
+.todoItem{
   border: 2px black solid ;
   background: rgb(39, 179, 211);
   width: 15rem;
