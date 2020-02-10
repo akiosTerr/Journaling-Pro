@@ -1,13 +1,21 @@
 header {
-    color: rgb(92, 0, 100);
-    background: rgb(4, 242, 250);
+    color: rgb(75, 75, 75);
+    background: rgb(0, 212, 71);
     text-align: center;
     widows: 100%;
 }
 
-.mainreport {
-    display: grid;
+body {
+    background: rgb(70, 70, 70);
+}
 
+.wrapper {
+    
+}
+
+.mainreport {
+    grid-template-columns: 1fr 1fr 1fr;
+    display: grid;
 }
 
 .form-style {

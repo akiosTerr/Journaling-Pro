@@ -34,6 +34,19 @@
   margin: auto .7em;
 }
 
+.btnAdd {
+  display: inline-block;
+  border: none;
+  background: #555;
+  color: #fff;
+  padding: 7px 20px;
+  cursor: pointer;
+}
+
+.btnAdd:hover{
+  background: #666;
+}
+
 .btnDelete {
   background: #ff0000;
   color: #fff;

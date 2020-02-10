@@ -14,8 +14,9 @@ class App extends Component {
 				<Header className='header'></Header>
 				<div className='mainreport'>
 					<AddReport></AddReport>
+					<div></div>
+					<AppTodo />
 				</div>
-				<AppTodo />
 			</div>
 		);
 	}

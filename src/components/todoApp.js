@@ -1,17 +1,19 @@
 import React, { Component } from 'react';
 import Todos from './todos';
-import Header from './layout/HeaderTodo';
+import AddTodo from './addTodo';
+import UUID from 'uuid';
 import './style/todoApp.css';
+import uuid from 'uuid';
 
 class AppTodo extends Component {
 	state = {
 		todos: [
-			{ id: 0, content: 'UI/UX design', completed: false },
-			{ id: 1, content: 'React Dev', completed: false },
-			{ id: 2, content: 'MongoDB', completed: false },
-			{ id: 3, content: 'Express', completed: false },
-			{ id: 4, content: 'MERN stack', completed: false },
-			{ id: 5, content: 'React Native', completed: false }
+			{ id: uuid.v4(), content: 'UI/UX design', completed: false },
+			{ id: uuid.v4(), content: 'React Dev', completed: false },
+			{ id: uuid.v4(), content: 'MongoDB', completed: false },
+			{ id: uuid.v4(), content: 'Express', completed: false },
+			{ id: uuid.v4(), content: 'MERN stack', completed: false },
+			{ id: uuid.v4(), content: 'React Native', completed: false }
 		]
 	};
 
@@ -32,11 +34,22 @@ class AppTodo extends Component {
 		});
 	};
 
+	addTodo = content => {
+		const newTodo = {
+			id: uuid.v4(),
+			content,
+			completed: false
+		};
+		this.setState({
+			todos: [...this.state.todos, newTodo]
+		});
+	};
+
 	render() {
 		return (
 			<div className='Container'>
-				<Header></Header>
 				<div className='todoFlex'>
+					<AddTodo addTodo={this.addTodo} />
 					<Todos
 						delRep={this.deleteReport}
 						toggleComplete={this.toggleComplete}
