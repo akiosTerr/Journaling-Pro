@@ -16,7 +16,7 @@ export default class AddReport extends Component {
 	render() {
 		return (
 			<form onSubmit={this.onSubmit} className='form-style'>
-				<p id='date-p'>07/08/1997 13:49</p>
+				<p id='date-p'>{this.props.date}</p>
 				<textarea
 					onChange={this.onChange}
 					name='content'

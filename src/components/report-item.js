@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 class ReportItem extends Component {
 	render() {
@@ -11,5 +12,9 @@ class ReportItem extends Component {
 		);
 	}
 }
+
+ReportItem.prototypes = {
+	report: PropTypes.object.isRequired
+};
 
 export default ReportItem;

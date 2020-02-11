@@ -8,15 +8,12 @@ import uuid from 'uuid';
 
 class App extends Component {
 	state = {
-		journalReports: [
-			{ id: uuid.v4(), content: 'demo day report', date: '12/2/1845' }
-		]
+		journalReports: [{ id: uuid.v4(), content: 'test', date: '12/2/1845' }]
 	};
 
 	getDate = () => {
 		let d = new Date();
-		let datef = `${d.getDate()}/${d.getMonth() + 1}/${d.getFullYear()}`;
-		return datef;
+		return `${d.getDate()}/${d.getMonth() + 1}/${d.getFullYear()}`;
 	};
 
 	addReport = content => {
@@ -32,14 +29,19 @@ class App extends Component {
 	};
 	render() {
 		return (
-			<div className='wrapper'>
+			<>
 				<Header className='header' />
-				<div className='mainreport'>
-					<AddReport addReport={this.addReport} />
-					<DayReports reports={this.state.journalReports} />
-					<AppTodo />
+				<div className='wrapper'>
+					<div className='head'>
+						<AddReport date={this.getDate()} addReport={this.addReport} />
+						<AppTodo />
+					</div>
+
+					<div className='grid-rep'>
+						<DayReports reports={this.state.journalReports} />
+					</div>
 				</div>
-			</div>
+			</>
 		);
 	}
 }

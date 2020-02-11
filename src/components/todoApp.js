@@ -46,15 +46,13 @@ class AppTodo extends Component {
 
 	render() {
 		return (
-			<div className='Container'>
-				<div className='todoFlex'>
-					<AddTodo addTodo={this.addTodo} />
-					<Todos
-						delRep={this.deleteReport}
-						toggleComplete={this.toggleComplete}
-						todos={this.state.todos}
-					/>
-				</div>
+			<div className='todoFlex'>
+				<AddTodo addTodo={this.addTodo} />
+				<Todos
+					delRep={this.deleteReport}
+					toggleComplete={this.toggleComplete}
+					todos={this.state.todos}
+				/>
 			</div>
 		);
 	}

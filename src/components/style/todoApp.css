@@ -18,14 +18,21 @@
 }
 
 .todoItem{
-  border: 2px black solid ;
-  background: rgb(39, 179, 211);
-  width: 15rem;
   display: flex;
+  border: 2px black solid ;
+  background: rgb(0, 58, 71);
+  color: #fff;
+  width: 15rem;
   flex-flow: row wrap;
   justify-content: space-between;
   margin: 5px auto;
-  line-height: 1.7;
+  line-height: 0.7;
+}
+
+.todoItem p{
+  text-align: justify;
+  word-wrap: break-word;
+  width: 80%;
 }
 
 .cbox {
@@ -37,27 +44,28 @@
 .btnAdd {
   display: inline-block;
   border: none;
-  background: #555;
+  background: rgb(255, 0, 0);
+  opacity: .8;
   color: #fff;
   padding: 7px 20px;
   cursor: pointer;
 }
 
 .btnAdd:hover{
-  background: #666;
+  opacity: 1;
 }
 
 .btnDelete {
-  background: #ff0000;
+  background: #2f2f2f;
   color: #fff;
   cursor: pointer;
   border: none;
-  border-radius: 50%;
-  padding: 5px 8px;
+  opacity: .8 ;
+  padding: 3px 5px;
   margin: auto .7em;
 }
 
 .btnDelete:hover {
-  border: 1px black solid;
+  opacity: 1 ;
 }
 

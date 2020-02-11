@@ -2,7 +2,7 @@ header {
     color: rgb(75, 75, 75);
     background: rgb(0, 212, 71);
     text-align: center;
-    widows: 100%;
+    width: 100%;
 }
 
 body {
@@ -10,11 +10,9 @@ body {
 }
 
 .wrapper {
+    width: 90%;
+    max-width: 1100px;
     margin: auto;
-}
-
-.mainreport {
-   display: block;
 }
 
 .form-style {
@@ -26,13 +24,42 @@ body {
     background-color: #a0a0a0;
     width: 5%;
     min-width: 300px;
+    max-height: 200px;
+}
+
+.head{
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 2em;
+}
+
+.grid-rep {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin-bottom: 2.5em;
 }
 
 .reportItem {
-    text-align: center;
-    background-color: blanchedalmond;
-    margin: 1em auto;
-    width: 40%;
+    background-color: rgb(0, 6, 83);
+    border-radius: 10px;
+    padding: 8px;
+    color: blanchedalmond;
+    width: 250px;
+    min-height: 200px;
+    max-height: 400px;
+
+}
+
+.reportItem h3{
+    background-color:#000;
+    opacity: 0.6;
+}
+
+.reportItem p{
+   text-align: justify;
+   word-wrap: break-word;
+
 }
 
 #date-p {
