@@ -1,20 +1,15 @@
 * {
-  box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-.Container {
-  display:block;
-}
 
 .todoFlex {
   background: rgb(209, 202, 202);
   display: flex;
-  flex-flow: column nowrap;
-  width: 20rem;
-  margin: 10px auto;
-	border: 1px solid rgb(0, 0, 0);
+  flex-flow: column;
+  min-height: 306px;
+ 	border: 1px solid rgb(0, 0, 0);
 }
 
 .todoItem{
@@ -22,9 +17,8 @@
   border: 2px black solid ;
   background: rgb(0, 58, 71);
   color: #fff;
-  width: 15rem;
+  width: 20rem;
   flex-flow: row wrap;
-  justify-content: space-between;
   margin: 5px auto;
   line-height: 0.7;
 }

@@ -32,13 +32,19 @@ class App extends Component {
 			<>
 				<Header className='header' />
 				<div className='wrapper'>
-					<div className='head'>
-						<AddReport date={this.getDate()} addReport={this.addReport} />
-						<AppTodo />
-					</div>
-
-					<div className='grid-rep'>
-						<DayReports reports={this.state.journalReports} />
+					<div className='gridCap'>
+						<AddReport
+							className='grid-item addReport'
+							date={this.getDate()}
+							addReport={this.addReport}
+						/>
+						<div className='reportFeed'>
+							<DayReports
+								className='grid-item dayReports'
+								reports={this.state.journalReports}
+							/>
+						</div>
+						<AppTodo className='grid-item appTodo' />
 					</div>
 				</div>
 			</>
