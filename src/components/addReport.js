@@ -5,13 +5,25 @@ export default class AddReport extends Component {
 		content: ''
 	};
 
-	onChange = e => this.setState({ [e.target.name]: e.target.value });
+	switchEmptyNotifier = v => {
+		this.emptyNotifier.style.display = v;
+	};
+
+	onChange = e => {
+		this.switchEmptyNotifier('none');
+		this.setState({ [e.target.name]: e.target.value });
+	};
 
 	onSubmit = e => {
 		e.preventDefault();
+		if (this.state.content === '') {
+			this.switchEmptyNotifier('block');
+			return false;
+		}
+		this.switchEmptyNotifier('none');
 		this.props.addReport(this.state.content);
 		this.setState({ content: '' });
-		document.getElementById('report-text').value = '';
+		this.textAreaElement.value = '';
 	};
 	render() {
 		return (
@@ -22,7 +34,17 @@ export default class AddReport extends Component {
 					name='content'
 					placeholder='add day report...'
 					id='report-text'
+					ref={textarea => {
+						this.textAreaElement = textarea;
+					}}
 				/>
+				<p
+					id='emptNotifier'
+					ref={emptNotifier => {
+						this.emptyNotifier = emptNotifier;
+					}}>
+					cant be empty
+				</p>
 				<input id='subbtn' type='submit' value='Submit'></input>
 			</form>
 		);
