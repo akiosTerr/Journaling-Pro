@@ -9,6 +9,7 @@
   display: flex;
   flex-flow: column;
   min-height: 306px;
+  min-width: 326px;
  	border: 1px solid rgb(0, 0, 0);
 }
 

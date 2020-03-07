@@ -29,6 +29,13 @@ export default class AddReport extends Component {
 		return (
 			<form onSubmit={this.onSubmit} className='form-style'>
 				<p id='date-p'>{this.props.date}</p>
+				<p
+					id='emptNotifier'
+					ref={emptNotifier => {
+						this.emptyNotifier = emptNotifier;
+					}}>
+					cannot be empty
+				</p>
 				<textarea
 					onChange={this.onChange}
 					name='content'
@@ -38,13 +45,7 @@ export default class AddReport extends Component {
 						this.textAreaElement = textarea;
 					}}
 				/>
-				<p
-					id='emptNotifier'
-					ref={emptNotifier => {
-						this.emptyNotifier = emptNotifier;
-					}}>
-					cant be empty
-				</p>
+
 				<input id='subbtn' type='submit' value='Submit'></input>
 			</form>
 		);

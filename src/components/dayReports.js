@@ -5,7 +5,10 @@ import PropTypes from 'prop-types';
 class DayReports extends Component {
 	render() {
 		return this.props.reports.map(itemRep => (
-			<ReportItem key={itemRep.id} report={itemRep}></ReportItem>
+			<ReportItem
+				delRep={this.props.delRep}
+				key={itemRep.id}
+				report={itemRep}></ReportItem>
 		));
 	}
 }

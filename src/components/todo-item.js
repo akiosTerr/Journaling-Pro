@@ -17,7 +17,7 @@ class TodoItem extends Component {
 					onChange={this.props.toggleComplete.bind(this, id)}></input>
 				<p style={this.getStyle()}>{content}</p>
 				<button
-					onClick={this.props.delRep.bind(this, id)}
+					onClick={this.props.delTodo.bind(this, id)}
 					className='btnDelete'>
 					X
 				</button>

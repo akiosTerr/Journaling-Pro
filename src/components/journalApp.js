@@ -27,6 +27,15 @@ class App extends Component {
 			journalReports: [...this.state.journalReports, newReport]
 		});
 	};
+
+	delReport = id => {
+		this.setState({
+			journalReports: [
+				...this.state.journalReports.filter(rep => rep.id !== id)
+			]
+		});
+	};
+
 	render() {
 		return (
 			<>
@@ -40,6 +49,7 @@ class App extends Component {
 						/>
 						<div className='reportFeed'>
 							<DayReports
+								delRep={this.delReport}
 								className='grid-item dayReports'
 								reports={this.state.journalReports}
 							/>

@@ -16,7 +16,7 @@ class AppTodo extends Component {
 		]
 	};
 
-	deleteReport = id => {
+	deleteTodo = id => {
 		this.setState({
 			todos: [...this.state.todos.filter(rep => rep.id !== id)]
 		});
@@ -49,7 +49,7 @@ class AppTodo extends Component {
 			<div className='todoFlex'>
 				<AddTodo addTodo={this.addTodo} />
 				<Todos
-					delRep={this.deleteReport}
+					delTodo={this.deleteTodo}
 					toggleComplete={this.toggleComplete}
 					todos={this.state.todos}
 				/>
