@@ -9,12 +9,13 @@ router.get('/', (req, res) => {
 
 router.post('/add', (req, res) => {
 	const username = req.body.username;
-	const description = req.body.description;
-	const date = Date.parse(req.body.date);
+	const content = req.body.content;
+	const date = req.body.date;
 
 	const newReport = new Report({
 		username,
-		description
+		date,
+		content
 	});
 
 	newReport
@@ -39,7 +40,7 @@ router.post('/update/:id', (req, res) => {
 	Report.findById(req.params.id)
 		.then(report => {
 			report.username = req.body.username;
-			report.description = req.body.description;
+			report.content = req.body.content;
 
 			report
 				.save()

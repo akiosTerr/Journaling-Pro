@@ -21,7 +21,9 @@ export default class AddReport extends Component {
 			return false;
 		}
 		this.switchEmptyNotifier('none');
+
 		this.props.addReport(this.state.content);
+
 		this.setState({ content: '' });
 		this.textAreaElement.value = '';
 	};
