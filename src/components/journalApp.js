@@ -59,6 +59,9 @@ class App extends Component {
 	};
 
 	delReport = id => {
+		if (!window.confirm('Are you sure you wish to delete this item?')) {
+			return;
+		}
 		axios
 			.delete('http://localhost:5000/reports/' + id)
 			.then(res => console.log(res.data))
