@@ -11,7 +11,7 @@ export default class AddTodo extends Component {
 		e.preventDefault();
 		this.props.addTodo(this.state.title);
 		this.setState({ title: '' });
-		document.getElementById('input-id').value = '';
+		this.todoInput.value = '';
 	};
 
 	render() {
@@ -20,7 +20,9 @@ export default class AddTodo extends Component {
 				<input
 					type='text'
 					name='title'
-					id='input-id'
+					ref={todoInput => {
+						this.todoInput = todoInput;
+					}}
 					placeholder='add Todo...'
 					style={{ flex: '10', padding: '5px' }}
 					onChange={this.onChange}

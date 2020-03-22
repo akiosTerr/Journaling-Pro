@@ -36,6 +36,7 @@ connection
 
 app.use('/users', require('./routes/users'));
 app.use('/reports', require('./routes/reports'));
+app.use('/todos', require('./routes/todos'));
 
 app.get('/', (req, res) => {
 	res.send('Hello FUCKIN WORLD');

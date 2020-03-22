@@ -2,26 +2,31 @@ import React, { Component } from 'react';
 import Todos from './todos';
 import AddTodo from './addTodo';
 import './style/todoApp.css';
-import uuid from 'uuid';
+import axios from 'axios';
 
 class AppTodo extends Component {
 	state = {
-		todos: [
-			{ id: uuid.v4(), content: 'UI/UX design', completed: false },
-			{ id: uuid.v4(), content: 'React Dev', completed: false },
-			{ id: uuid.v4(), content: 'MongoDB', completed: false },
-			{ id: uuid.v4(), content: 'Express', completed: false },
-			{ id: uuid.v4(), content: 'MERN stack', completed: false },
-			{ id: uuid.v4(), content: 'React Native', completed: false }
-		]
+		todos: []
 	};
 
 	deleteTodo = id => {
+		if (!window.confirm('Are you sure you wish to delete this item?')) {
+			return;
+		}
+		axios
+			.delete('http://localhost:5000/todos/' + id)
+			.then(res => console.log(res.data))
+			.catch(err => {
+				console.log('Error: ' + err);
+				return;
+			});
+
 		this.setState({
-			todos: [...this.state.todos.filter(rep => rep.id !== id)]
+			todos: [...this.state.todos.filter(todo => todo.id !== id)]
 		});
 	};
 
+	//todo: connect toggle complete field to DB
 	toggleComplete = id => {
 		this.setState({
 			todos: this.state.todos.map(rep => {
@@ -33,15 +38,38 @@ class AppTodo extends Component {
 		});
 	};
 
+	componentDidMount = () => {
+		this.loadTodos();
+	};
+
+	loadTodos = () => {
+		axios.get('http://localhost:5000/todos/').then(res => {
+			if (res.data.length > 0) {
+				let todoArr = res.data.map(obj => {
+					return {
+						id: obj._id,
+						content: obj.content
+					};
+				});
+				console.log(todoArr);
+				this.setState({ todos: [...todoArr] });
+			}
+		});
+	};
+
 	addTodo = content => {
 		const newTodo = {
-			id: uuid.v4(),
+			username: 'Akios',
 			content,
 			completed: false
 		};
-		this.setState({
-			todos: [...this.state.todos, newTodo]
-		});
+		axios
+			.post('http://localhost:5000/todos/add', newTodo)
+			.then(res => {
+				console.log(res.data);
+				this.loadTodos();
+			})
+			.catch(err => console.log('Error: ', err));
 	};
 
 	render() {

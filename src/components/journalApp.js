@@ -67,7 +67,7 @@ class App extends Component {
 			.then(res => console.log(res.data))
 			.catch(err => {
 				console.log('Error: ' + err);
-				return false;
+				return;
 			});
 
 		this.setState({
