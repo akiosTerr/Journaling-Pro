@@ -16,9 +16,9 @@ console.log(result.parsed);
 const app = express();
 const port = process.env.PORT || 5000;
 
-app.use(favicon(__dirname + '/build/favicon.ico'));
+app.use(favicon(__dirname + '../' + '/build/favicon.ico'));
 app.use(cors());
-//app.use(express.static('../'));
+app.use(express.static('../'));
 app.use(express.static(path.join(__dirname, '../', 'build')));
 app.use(express.json());
 app.get('/ping', function(req, res) {
