@@ -1,5 +1,6 @@
 const express = require('express');
 const cors = require('cors');
+const favicon = require('express-favicon');
 const mongoose = require('mongoose');
 const path = require('path');
 const dotenv = require('dotenv');
@@ -15,8 +16,9 @@ console.log(result.parsed);
 const app = express();
 const port = process.env.PORT || 5000;
 
+app.use(favicon(__dirname + '/build/favicon.ico'));
 app.use(cors());
-app.use(express.static('../'));
+//app.use(express.static('../'));
 app.use(express.static(path.join(__dirname, '../', 'build')));
 app.use(express.json());
 app.get('/ping', function(req, res) {
