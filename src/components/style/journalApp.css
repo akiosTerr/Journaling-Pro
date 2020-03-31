@@ -1,6 +1,6 @@
 header {
     color: rgb(75, 75, 75);
-    background: rgb(0, 212, 71);
+    background: rgb(156, 0, 246);
     text-align: center;
     width: 100%;
 }
@@ -10,16 +10,22 @@ body {
 }
 
 .wrapper {
-    width: 90%;
 }
 
 .gridCap {
     display: grid;
-    grid-template-columns: 1fr 3fr;
-    grid-auto-rows: minmax(150px,auto);
     grid-template-areas: 
     "addrep feedrep" "todo feedrep" "todo feedrep";
-    gap: 10px
+    gap: 5px
+}
+
+@media (max-width: 480px) {
+    .gridCap{
+        grid-template-areas: 
+        "feedrep feedrep" "addrep addrep" "todo todo" ;
+        font-size: 1.4em;
+    }
+
 }
 
 .grid-item{
@@ -44,7 +50,7 @@ body {
     border-radius: 10px;
     padding: 15px;
     color: rgb(255, 255, 255);
-    margin: 0.5em 0;
+    margin: 0.4em 0;
 }
 
 

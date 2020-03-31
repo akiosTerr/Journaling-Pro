@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './style/journalApp.css';
-import Header from './layout/HeaderJournal';
 import AddReport from './addReport';
 import AppTodo from './todoApp';
 import DayReports from './dayReports';
@@ -80,7 +79,6 @@ class App extends Component {
 	render() {
 		return (
 			<>
-				<Header className='header' />
 				<div className='wrapper'>
 					<div className='gridCap'>
 						<AddReport

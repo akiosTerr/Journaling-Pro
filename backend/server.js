@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
+const path = require('path');
 const dotenv = require('dotenv');
 
 const result = dotenv.config({ path: __dirname + '/.env' });
@@ -15,7 +16,12 @@ const app = express();
 const port = process.env.PORT || 5000;
 
 app.use(cors());
+app.use(express.static('../'));
+app.use(express.static(path.join(__dirname, '../', 'build')));
 app.use(express.json());
+app.get('/ping', function(req, res) {
+	return res.send('pong');
+});
 
 const usersRouter = require('./routes/users');
 let uri = process.env.ATLAS_URI;
@@ -39,7 +45,7 @@ app.use('/reports', require('./routes/reports'));
 app.use('/todos', require('./routes/todos'));
 
 app.get('/', (req, res) => {
-	res.send('Hello FUCKIN WORLD');
+	res.sendFile(path.join(__dirname, '../', 'build', 'index.html'));
 });
 
 app.use((req, res) => {
