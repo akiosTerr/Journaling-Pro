@@ -5,28 +5,24 @@ const mongoose = require('mongoose');
 const path = require('path');
 const dotenv = require('dotenv');
 
-const result = dotenv.config({ path: __dirname + '/.env' });
-
-if (result.error) {
-	throw result.error;
+if (process.env.NODE_ENV !== 'production') {
+	dotenv.config();
 }
-
-console.log(result.parsed);
+//{ path: __dirname + '/.env' }
 
 const app = express();
 const port = process.env.PORT || 5000;
 
-app.use(favicon(__dirname + '../' + '/build/favicon.ico'));
 app.use(cors());
-app.use(express.static('../'));
-app.use(express.static(path.join(__dirname, '../', 'build')));
+app.use(favicon('../build/favicon.ico'));
+//app.use(express.static('E:\\WEBDEV\\APPS\\journal-app-react'));
+app.use(express.static('../build'));
 app.use(express.json());
 app.get('/ping', function(req, res) {
 	return res.send('pong');
 });
 
-const usersRouter = require('./routes/users');
-let uri = process.env.ATLAS_URI;
+let uri = process.env.MONGODB_URI;
 
 mongoose.connect(uri, {
 	useUnifiedTopology: true,
@@ -47,7 +43,9 @@ app.use('/reports', require('./routes/reports'));
 app.use('/todos', require('./routes/todos'));
 
 app.get('/', (req, res) => {
-	res.sendFile(path.join(__dirname, '../', 'build', 'index.html'));
+	res.sendFile('build/index.html', {
+		root: 'E:/WEBDEV/APPS/journal-app-react'
+	});
 });
 
 app.use((req, res) => {
