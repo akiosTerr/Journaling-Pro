@@ -18,7 +18,7 @@ app.use(favicon('../build/favicon.ico'));
 //app.use(express.static('E:\\WEBDEV\\APPS\\journal-app-react'));
 app.use(express.static('../build'));
 app.use(express.json());
-app.get('/ping', function(req, res) {
+app.get('/ping', (req, res) => {
 	return res.send('pong');
 });
 
@@ -27,14 +27,17 @@ let uri = process.env.MONGODB_URI;
 mongoose.connect(uri, {
 	useUnifiedTopology: true,
 	useNewUrlParser: true,
-	useCreateIndex: true
+	useCreateIndex: true,
+	debug: true,
 });
 const connection = mongoose.connection;
+console.log(connection);
+
 connection
 	.once('open', () => {
 		console.log('mongoDB database connection established');
 	})
-	.on('error', err => {
+	.on('error', (err) => {
 		console.log('Error: ', err);
 	});
 
@@ -44,7 +47,7 @@ app.use('/todos', require('./routes/todos'));
 
 app.get('/', (req, res) => {
 	res.sendFile('build/index.html', {
-		root: 'E:/WEBDEV/APPS/journal-app-react'
+		root: 'E:/WEBDEV/APPS/journal-app-react',
 	});
 });
 
