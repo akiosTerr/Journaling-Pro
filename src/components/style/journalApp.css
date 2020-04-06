@@ -20,6 +20,7 @@ body {
 }
 
 @media (max-width: 480px) {
+   
     .gridCap{
         grid-template-areas: 
         "feedrep feedrep" "addrep addrep" "todo todo" ;
@@ -45,19 +46,11 @@ body {
 .dayReports{
 }
 
-.reportItem {
-    background-color: rgb(49, 49, 49);
-    border-radius: 10px;
-    padding: 15px;
-    color: rgb(255, 255, 255);
-    margin: 0.4em 0;
-}
-
-
 .navRepItem{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    margin-bottom: 10px;
 }
 
 #deletebtn {
@@ -68,31 +61,36 @@ body {
     font-family: sans-serif;
     opacity: 0.4;
     cursor: pointer;
-    border-radius: 50%;
+    border-radius: 50px;
     border: none;
 }
+
 #deletebtn:hover{
     opacity: 0.8;
-
 }
 
+.reportItem {
+    background-color: rgb(49, 49, 49);
+    padding: 15px;
+    color: rgb(255, 255, 255);
+    margin: 0.4em 0;
+}
 
 .reportItem h3{
     opacity: 0.6;
-    text-align: center;
     font-size: 1.5em;
 }
 
 .reportItem p{
+   margin: 0 auto;
    text-align: justify;
-   word-wrap: break-word;
+   max-width: 80ch;
 
 }
 
 .appTodo{
     grid-area: todo;
 }
-
 
 .form-style {
     display: flex;

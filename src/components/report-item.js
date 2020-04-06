@@ -7,7 +7,7 @@ class ReportItem extends Component {
 		return (
 			<div className='reportItem'>
 				<div className='navRepItem'>
-					<p></p>
+					<span></span>
 					<h3>{date}</h3>
 					<button onClick={this.props.delRep.bind(this, id)} id='deletebtn'>
 						X
@@ -20,7 +20,7 @@ class ReportItem extends Component {
 }
 
 ReportItem.prototypes = {
-	report: PropTypes.object.isRequired
+	report: PropTypes.object.isRequired,
 };
 
 export default ReportItem;

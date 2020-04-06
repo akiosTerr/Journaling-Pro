@@ -7,7 +7,7 @@ import axios from 'axios';
 
 class App extends Component {
 	state = {
-		journalReports: []
+		journalReports: [],
 	};
 
 	getDate = () => {
@@ -22,13 +22,13 @@ class App extends Component {
 	loadReports = () => {
 		axios
 			.get('http://localhost:5000/reports/')
-			.then(res => {
+			.then((res) => {
 				if (res.data.length > 0) {
-					let repArr = res.data.map(obj => {
+					let repArr = res.data.map((obj) => {
 						return {
 							id: obj._id,
 							date: obj.date,
-							content: obj.content
+							content: obj.content,
 						};
 					});
 					console.log(repArr);
@@ -36,43 +36,43 @@ class App extends Component {
 					this.setState({ journalReports: [...repArr.reverse()] });
 				}
 			})
-			.catch(err => {
+			.catch((err) => {
 				console.log('Error: ', err);
 			});
 	};
 
-	addReport = content => {
+	addReport = (content) => {
 		const newReport = {
 			username: 'Akios',
 			date: this.getDate(),
-			content
+			content,
 		};
 
 		axios
 			.post('http://localhost:5000/reports/add', newReport)
-			.then(res => {
+			.then((res) => {
 				console.log(res.data);
 				this.loadReports();
 			})
-			.catch(err => console.log('Error: ', err));
+			.catch((err) => console.log('Error: ', err));
 	};
 
-	delReport = id => {
+	delReport = (id) => {
 		if (!window.confirm('Are you sure you wish to delete this item?')) {
 			return;
 		}
 		axios
 			.delete('http://localhost:5000/reports/' + id)
-			.then(res => console.log(res.data))
-			.catch(err => {
+			.then((res) => console.log(res.data))
+			.catch((err) => {
 				console.log('Error: ' + err);
 				return;
 			});
 
 		this.setState({
 			journalReports: [
-				...this.state.journalReports.filter(rep => rep.id !== id)
-			]
+				...this.state.journalReports.filter((rep) => rep.id !== id),
+			],
 		});
 	};
 
@@ -86,10 +86,10 @@ class App extends Component {
 							date={this.getDate()}
 							addReport={this.addReport}
 						/>
-						<div className='reportFeed'>
+						<div className='grid-item reportFeed'>
 							<DayReports
 								delRep={this.delReport}
-								className='grid-item dayReports'
+								className='dayReports'
 								reports={this.state.journalReports}
 							/>
 						</div>
