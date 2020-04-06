@@ -31,7 +31,7 @@ mongoose.connect(uri, {
 	debug: true,
 });
 const connection = mongoose.connection;
-console.log(connection);
+console.log('mongoose connection:' + connection);
 
 connection
 	.once('open', () => {
