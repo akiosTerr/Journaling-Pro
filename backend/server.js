@@ -31,8 +31,6 @@ mongoose.connect(uri, {
 	useCreateIndex: true,
 });
 const connection = mongoose.connection;
-console.log('mongoose connection:');
-console.log(connection);
 
 connection
 	.once('open', () => {
