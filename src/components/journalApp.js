@@ -3,11 +3,18 @@ import './style/journalApp.css';
 import AddReport from './addReport';
 import AppTodo from './todoApp';
 import DayReports from './dayReports';
-import axios from 'axios';
+import uuid from 'uuid';
 
 class App extends Component {
 	state = {
-		journalReports: [],
+		journalReports: [
+			{
+				id: uuid.v4(),
+				content:
+					'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+				date: '14/12/1945',
+			},
+		],
 	};
 
 	getDate = () => {
@@ -15,59 +22,23 @@ class App extends Component {
 		return `${d.getDate()}/${d.getMonth() + 1}/${d.getFullYear()}`;
 	};
 
-	componentDidMount = () => {
-		this.loadReports();
-	};
-
-	loadReports = () => {
-		axios
-			.get('http://localhost:5000/reports/')
-			.then((res) => {
-				if (res.data.length > 0) {
-					let repArr = res.data.map((obj) => {
-						return {
-							id: obj._id,
-							date: obj.date,
-							content: obj.content,
-						};
-					});
-					console.log(repArr);
-
-					this.setState({ journalReports: [...repArr.reverse()] });
-				}
-			})
-			.catch((err) => {
-				console.log('Error: ', err);
-			});
-	};
-
 	addReport = (content) => {
 		const newReport = {
+			id: uuid.v4(),
 			username: 'Akios',
 			date: this.getDate(),
 			content,
 		};
 
-		axios
-			.post('http://localhost:5000/reports/add', newReport)
-			.then((res) => {
-				console.log(res.data);
-				this.loadReports();
-			})
-			.catch((err) => console.log('Error: ', err));
+		this.setState({
+			journalReports: [...this.state.journalReports, newReport],
+		});
 	};
 
 	delReport = (id) => {
 		if (!window.confirm('Are you sure you wish to delete this item?')) {
 			return;
 		}
-		axios
-			.delete('http://localhost:5000/reports/' + id)
-			.then((res) => console.log(res.data))
-			.catch((err) => {
-				console.log('Error: ' + err);
-				return;
-			});
 
 		this.setState({
 			journalReports: [
