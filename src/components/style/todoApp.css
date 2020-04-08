@@ -3,13 +3,11 @@
   padding: 0;
 }
 
-
 .todoFlex {
   background: rgb(209, 202, 202);
   display: flex;
   flex-flow: column;
   min-height: 306px;
-  min-width: 326px;
  	border: 1px solid rgb(0, 0, 0);
 }
 
@@ -18,7 +16,7 @@
   border: 2px black solid ;
   background: rgb(0, 58, 71);
   color: #fff;
-  width: 20rem;
+  width: 90%;
   flex-flow: row wrap;
   margin: 5px auto;
   line-height: 0.7;
@@ -33,7 +31,7 @@
 .cbox {
   width: 20px; 
   height: 20px; 
-  margin: auto .7em;
+  margin: auto .8em;
 }
 
 .btnAdd {

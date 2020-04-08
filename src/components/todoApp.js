@@ -6,35 +6,35 @@ import axios from 'axios';
 
 class AppTodo extends Component {
 	state = {
-		todos: []
+		todos: [],
 	};
 
-	deleteTodo = id => {
+	deleteTodo = (id) => {
 		if (!window.confirm('Are you sure you wish to delete this item?')) {
 			return;
 		}
 		axios
 			.delete('http://localhost:5000/todos/' + id)
-			.then(res => console.log(res.data))
-			.catch(err => {
+			.then((res) => console.log(res.data))
+			.catch((err) => {
 				console.log('Error: ' + err);
 				return;
 			});
 
 		this.setState({
-			todos: [...this.state.todos.filter(todo => todo.id !== id)]
+			todos: [...this.state.todos.filter((todo) => todo.id !== id)],
 		});
 	};
 
 	//todo: connect toggle complete field to DB
-	toggleComplete = id => {
+	toggleComplete = (id) => {
 		this.setState({
-			todos: this.state.todos.map(rep => {
+			todos: this.state.todos.map((rep) => {
 				if (rep.id === id) {
 					rep.completed = !rep.completed;
 				}
 				return rep;
-			})
+			}),
 		});
 	};
 
@@ -43,12 +43,12 @@ class AppTodo extends Component {
 	};
 
 	loadTodos = () => {
-		axios.get('http://localhost:5000/todos/').then(res => {
+		axios.get('http://localhost:5000/todos/').then((res) => {
 			if (res.data.length > 0) {
-				let todoArr = res.data.map(obj => {
+				let todoArr = res.data.map((obj) => {
 					return {
 						id: obj._id,
-						content: obj.content
+						content: obj.content,
 					};
 				});
 				console.log(todoArr);
@@ -57,24 +57,24 @@ class AppTodo extends Component {
 		});
 	};
 
-	addTodo = content => {
+	addTodo = (content) => {
 		const newTodo = {
 			username: 'Akios',
 			content,
-			completed: false
+			completed: false,
 		};
 		axios
 			.post('http://localhost:5000/todos/add', newTodo)
-			.then(res => {
+			.then((res) => {
 				console.log(res.data);
 				this.loadTodos();
 			})
-			.catch(err => console.log('Error: ', err));
+			.catch((err) => console.log('Error: ', err));
 	};
 
 	render() {
 		return (
-			<div className='todoFlex'>
+			<div className='todoFlex grid-item'>
 				<AddTodo addTodo={this.addTodo} />
 				<Todos
 					delTodo={this.deleteTodo}

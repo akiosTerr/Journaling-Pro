@@ -2,19 +2,19 @@ import React, { Component } from 'react';
 
 export default class AddReport extends Component {
 	state = {
-		content: ''
+		content: '',
 	};
 
-	switchEmptyNotifier = v => {
+	switchEmptyNotifier = (v) => {
 		this.emptyNotifier.style.display = v;
 	};
 
-	onChange = e => {
+	onChange = (e) => {
 		this.switchEmptyNotifier('none');
 		this.setState({ [e.target.name]: e.target.value });
 	};
 
-	onSubmit = e => {
+	onSubmit = (e) => {
 		e.preventDefault();
 		if (this.state.content === '') {
 			this.switchEmptyNotifier('block');
@@ -29,11 +29,11 @@ export default class AddReport extends Component {
 	};
 	render() {
 		return (
-			<form onSubmit={this.onSubmit} className='form-style'>
+			<form onSubmit={this.onSubmit} className='form-style grid-item'>
 				<p id='date-p'>{this.props.date}</p>
 				<p
 					id='emptNotifier'
-					ref={emptNotifier => {
+					ref={(emptNotifier) => {
 						this.emptyNotifier = emptNotifier;
 					}}>
 					cannot be empty
@@ -43,7 +43,7 @@ export default class AddReport extends Component {
 					name='content'
 					placeholder='add day report...'
 					id='report-text'
-					ref={textarea => {
+					ref={(textarea) => {
 						this.textAreaElement = textarea;
 					}}
 				/>

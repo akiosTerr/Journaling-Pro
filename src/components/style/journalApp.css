@@ -1,147 +1,169 @@
-header {
-    color: rgb(75, 75, 75);
-    background: rgb(156, 0, 246);
-    text-align: center;
-    width: 100%;
-}
 
 body {
-    background: rgb(70, 70, 70);
+	background: rgb(70, 70, 70);
+}
+
+
+header {
+	color: rgb(75, 75, 75);
+	background: rgb(156, 0, 246);
+	text-align: center;
+	width: 100%;
 }
 
 .wrapper {
 }
 
-.gridCap {
-    display: grid;
-    grid-template-areas: 
-    "addrep feedrep" "todo feedrep" "todo feedrep";
-    gap: 5px
-}
-
-@media (max-width: 480px) {
-   
-    .gridCap{
-        grid-template-areas: 
-        "feedrep feedrep" "addrep addrep" "todo todo" ;
-        font-size: 1.4em;
-    }
-
-}
-
-.grid-item{
-
-}
-
-.addReport {
-    grid-area: addrep;
-}
-
-.reportFeed{
-    grid-area: feedrep;
-    display: flex;
-    flex-direction: column;
-}
-
-.dayReports{
-}
-
-.navRepItem{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    margin-bottom: 10px;
+.navRepItem {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	margin-bottom: 10px;
 }
 
 #deletebtn {
-    color: red;
-    background-color: rgb(65, 65, 65);
-    padding: 5px 10px;
-    font-weight: bold;
-    font-family: sans-serif;
-    opacity: 0.4;
-    cursor: pointer;
-    border-radius: 50px;
-    border: none;
+	color: red;
+	background-color: rgb(65, 65, 65);
+	padding: 5px 10px;
+	font-weight: bold;
+	font-family: sans-serif;
+	opacity: 0.4;
+	cursor: pointer;
+	border-radius: 50px;
+	border: none;
 }
 
-#deletebtn:hover{
-    opacity: 0.8;
+#deletebtn:hover {
+	opacity: 1;
 }
 
 .reportItem {
-    background-color: rgb(49, 49, 49);
-    padding: 15px;
-    color: rgb(255, 255, 255);
-    margin: 0.4em 0;
+	background-color: rgb(49, 49, 49);
+	padding: 15px 40px;
+	color: rgb(255, 255, 255);
+	margin: 0.4em 0;
 }
 
-.reportItem h3{
-    opacity: 0.6;
-    font-size: 1.5em;
+.reportItem h3 {
+	opacity: 0.6;
+	font-size: 1.5em;
 }
 
-.reportItem p{
-   margin: 0 auto;
-   text-align: justify;
-   max-width: 80ch;
-
-}
-
-.appTodo{
-    grid-area: todo;
+.reportItem p {
+	margin: 0 auto;
+	text-align: justify;
+	max-width: 80ch;
 }
 
 .form-style {
-    display: flex;
-    flex-direction: column;
-    border: 1px solid rgb(0, 0, 0);
-    border-radius: 5px;
-    background-color: #a0a0a0;
-    min-width: 400px;
-    max-height: 400px;
+	display: flex;
+	flex-direction: column;
+	border: 1px solid rgb(0, 0, 0);
+	border-radius: 5px;
+	background-color: #a0a0a0;
+	max-height: 400px;
 }
 
 #report-text {
-    background: rgb(223, 223, 223);
-    color: rgb(0, 0, 0);
-    width: 90%;
-    height: 100px;
-    font-size: 1.2em;
-    margin: 2px auto;
-    line-height: 1.2em;
-    min-height: 190px;
-    min-width: 390px;
-    resize: none;
-    border: 1px solid #ccc;
+	background: rgb(223, 223, 223);
+	color: rgb(0, 0, 0);
+	width: 90%;
+	height: 100px;
+	font-size: 1.2em;
+	margin: 2px auto;
+	line-height: 1.2em;
+	min-height: 190px;
+	resize: none;
+	border: 1px solid #ccc;
     border-radius: 5px;
 }
 
-
 #date-p {
-    color: rgb(82, 82, 82);
-    font-weight: bold;
-    text-align: center;
-    margin: 3px;
+	color: rgb(82, 82, 82);
+	font-weight: bold;
+	text-align: center;
+	margin: 3px;
 }
 
 #emptNotifier {
-    display: none;
-    margin: 5px auto;
-    text-align: center;
-    width: 150px;
+	display: none;
+	margin: 5px auto;
+	text-align: center;
+	width: 150px;
 	border-radius: 20px;
 	background-color: red;
 }
 
-
 #subbtn {
-    background-color: rgb(219, 42, 11);
-    color: white;
-    margin: 1em auto;
-    padding: 10px 20px;
-    width: 50%;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+	background-color: rgb(219, 42, 11);
+	color: white;
+	margin: 1em auto;
+	padding: 10px 20px;
+	width: 50%;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
 }
+
+
+/* Extra small devices (phones, 600px and down) */
+/* @media only screen and (max-width: 600px) {...} */
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+/* @media only screen and (min-width: 600px) {...} */
+
+/* Medium devices (landscape tablets, 768px and up) */
+/* @media only screen and (min-width: 768px) {...} */
+
+/* Large devices (laptops/desktops, 992px and up) */
+/* @media only screen and (min-width: 992px) {...} */
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+/* @media only screen and (min-width: 1200px) {...} */
+
+.gridCap {
+	display: grid;
+	grid-template-columns: 1fr 3fr;
+	grid-template-areas: 'addrep feedrep' 'todo feedrep' 'todo feedrep';
+	gap: 5px;
+}
+
+.appTodo {
+	grid-area: todo;
+}
+
+.addReport {
+	grid-area: addrep;
+}
+
+.reportFeed {
+	grid-area: feedrep;
+	justify-self: center;
+	display: flex;
+	flex-direction: column;
+}
+
+@media only screen and (max-width: 768px) {
+	.gridCap {
+		grid-template-columns: 1fr 1fr;
+        grid-template-areas: 'addrep todo' 'feedrep feedrep' ;
+        justify-items: stretch;
+    }
+}
+
+
+@media only screen and (max-width: 480px) {
+	.gridCap {
+		grid-template-columns: 100%;
+        grid-template-areas: 'addrep ' 'todo' 'feedrep';
+        justify-items: stretch;
+    }
+}
+
+
+
+@media only screen and (max-width: 320px) {
+    
+    
+}
+

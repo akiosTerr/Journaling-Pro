@@ -81,15 +81,10 @@ class App extends Component {
 			<>
 				<div className='wrapper'>
 					<div className='gridCap'>
-						<AddReport
-							className='grid-item addReport'
-							date={this.getDate()}
-							addReport={this.addReport}
-						/>
+						<AddReport date={this.getDate()} addReport={this.addReport} />
 						<div className='grid-item reportFeed'>
 							<DayReports
 								delRep={this.delReport}
-								className='dayReports'
 								reports={this.state.journalReports}
 							/>
 						</div>
