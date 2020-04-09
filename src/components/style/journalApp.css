@@ -11,9 +11,6 @@ header {
 	width: 100%;
 }
 
-.wrapper {
-}
-
 .navRepItem {
 	display: flex;
 	flex-direction: row;
@@ -29,7 +26,6 @@ header {
 	font-family: sans-serif;
 	opacity: 0.4;
 	cursor: pointer;
-	border-radius: 50px;
 	border: none;
 }
 
@@ -59,7 +55,6 @@ header {
 	display: flex;
 	flex-direction: column;
 	border: 1px solid rgb(0, 0, 0);
-	border-radius: 5px;
 	background-color: #a0a0a0;
 	max-height: 400px;
 }
@@ -123,7 +118,7 @@ header {
 
 .gridCap {
 	display: grid;
-	grid-template-columns: 1fr 3fr;
+	grid-template-columns: 30% 70%;
 	grid-template-areas: 'addrep feedrep' 'todo feedrep' 'todo feedrep';
 	gap: 5px;
 }

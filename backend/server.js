@@ -23,7 +23,7 @@ app.get('/ping', (req, res) => {
 });
 
 let uri = process.env.MONGODB_URI;
-mongoose.set('debug', true);
+//mongoose.set('debug', true);
 
 mongoose.connect(uri, {
 	useUnifiedTopology: true,
@@ -31,8 +31,6 @@ mongoose.connect(uri, {
 	useCreateIndex: true,
 });
 const connection = mongoose.connection;
-console.log('mongoose connection:');
-console.log(connection);
 
 connection
 	.once('open', () => {

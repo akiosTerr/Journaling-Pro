@@ -6,32 +6,36 @@
 .todoFlex {
   background: rgb(209, 202, 202);
   display: flex;
-  flex-flow: column;
+  flex-direction: column;
+  flex-wrap: nowrap;
   min-height: 306px;
  	border: 1px solid rgb(0, 0, 0);
 }
 
+
 .todoItem{
-  display: flex;
+  display: grid;
+  grid-template-columns: 10% 80% 10%;
   border: 2px black solid ;
-  background: rgb(0, 58, 71);
-  color: #fff;
+  background: rgb(18, 212, 255);
+  font-weight: 500;
+  color: rgb(0, 0, 0);
   width: 90%;
-  flex-flow: row wrap;
+  padding: 3px;
   margin: 5px auto;
-  line-height: 0.7;
 }
 
 .todoItem p{
+  line-height: 0.9;
+  justify-self: center;
   text-align: justify;
-  word-wrap: break-word;
+  margin: auto 0px;
   width: 80%;
 }
 
 .cbox {
   width: 20px; 
   height: 20px; 
-  margin: auto .8em;
 }
 
 .btnAdd {
@@ -40,7 +44,6 @@
   background: rgb(255, 0, 0);
   opacity: .8;
   color: #fff;
-  padding: 7px 20px;
   cursor: pointer;
 }
 
@@ -49,13 +52,14 @@
 }
 
 .btnDelete {
-  background: #2f2f2f;
+  background: #d80404;
+  justify-self: end;
   color: #fff;
   cursor: pointer;
   border: none;
   opacity: .8 ;
-  padding: 3px 5px;
-  margin: auto .7em;
+  width: 20px;
+  height: 20px;
 }
 
 .btnDelete:hover {
