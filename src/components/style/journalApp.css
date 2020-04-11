@@ -3,14 +3,6 @@ body {
 	background: rgb(70, 70, 70);
 }
 
-
-header {
-	color: rgb(75, 75, 75);
-	background: rgb(156, 0, 246);
-	text-align: center;
-	width: 100%;
-}
-
 .navRepItem {
 	display: flex;
 	flex-direction: row;
