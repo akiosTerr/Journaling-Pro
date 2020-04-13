@@ -8,21 +8,23 @@ const dotenv = require('dotenv');
 if (process.env.NODE_ENV !== 'production') {
 	dotenv.config();
 }
+
 //{ path: __dirname + '/.env' }
 
 const app = express();
 const port = process.env.PORT || 5000;
 
 app.use(cors());
-app.use(favicon('../build/favicon.ico'));
+app.use(favicon('./build/favicon.ico'));
 //app.use(express.static('E:\\WEBDEV\\APPS\\journal-app-react'));
-app.use(express.static('../build'));
+app.use(express.static('./build'));
 app.use(express.json());
 app.get('/ping', (req, res) => {
 	return res.send('pong');
 });
 
 let uri = process.env.MONGODB_URI;
+
 //mongoose.set('debug', true);
 
 mongoose.connect(uri, {
