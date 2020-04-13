@@ -1,28 +1,36 @@
 .nav {
     overflow: hidden;
     background: rgb(169, 1, 236);
-	text-align: center;
-    width: 100%;
-    display: flex;
-    flex-direction:row;
-}
-.nav > h1{
-    color: rgb(87, 87, 87);
-}
-.nav > img {
-    margin-left: 20px;
-    width: 50px;
-    height: 50px;
 }
 
-a {
-    float: right;
-    display: block;
-    color: #f2f2f2;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    font-size: 17px;
+.logo {
+  float: left;
+  display: block;
+  margin-left: 20px;
+  width: 45px;
+  height: 45px;
+}
+
+.title{
+  float: left;
+  display: block;
+  color: rgb(255, 255, 255);
+  text-align: center;
+  padding: 10px 10px;
+  text-decoration: none;
+  font-size: 1.5em;
+}
+
+
+
+.navItem {
+  float: right;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
 }
 
 a:hover {

@@ -110,7 +110,7 @@ body {
 
 .gridCap {
 	display: grid;
-	grid-template-columns: 30% 70%;
+	grid-template-columns: 20% 80%;
 	grid-template-areas: 'addrep feedrep' 'todo feedrep' 'todo feedrep';
 	gap: 5px;
 }
