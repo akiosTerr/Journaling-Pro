@@ -16,27 +16,19 @@ export default class AddTodo extends Component {
 
 	render() {
 		return (
-			<form
-				onSubmit={this.onSubmit}
-				className='addForm'
-				style={{ display: 'flex' }}>
+			<form className='addTodoForm' onSubmit={this.onSubmit}>
 				<input
 					type='text'
 					name='title'
 					maxLength='32'
+					className='addTodoTextInput'
 					ref={(todoInput) => {
 						this.todoInput = todoInput;
 					}}
 					placeholder='add Todo...'
-					style={{ flex: '9', padding: '5px' }}
 					onChange={this.onChange}
 				/>
-				<input
-					type='submit'
-					value='Submit'
-					className='btnAdd'
-					style={{ flex: '2' }}
-				/>
+				<input type='submit' value='Submit' className='btnAdd' />
 			</form>
 		);
 	}

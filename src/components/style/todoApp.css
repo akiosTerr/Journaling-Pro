@@ -3,6 +3,32 @@
   padding: 0;
 }
 
+.addTodoForm {
+  display:flex;
+  flex-direction: row;
+  flex-wrap:nowrap;
+}
+
+.addTodoTextInput{
+  padding: 5px;
+  width: 70%;
+
+}
+
+.btnAdd {
+  width: 30%;
+  border: none;
+  background: rgb(255, 0, 0);
+  opacity: .8;
+  color: #fff;
+  cursor: pointer;
+}
+
+.btnAdd:hover{
+  opacity: 1;
+}
+
+
 .todoFlex {
   background: rgb(209, 202, 202);
   display: flex;
@@ -38,18 +64,6 @@
   height: 20px; 
 }
 
-.btnAdd {
-  display: inline-block;
-  border: none;
-  background: rgb(255, 0, 0);
-  opacity: .8;
-  color: #fff;
-  cursor: pointer;
-}
-
-.btnAdd:hover{
-  opacity: 1;
-}
 
 .btnDelete {
   background: #d80404;

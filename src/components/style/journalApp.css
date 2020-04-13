@@ -108,12 +108,7 @@ body {
 /* Extra large devices (large laptops and desktops, 1200px and up) */
 /* @media only screen and (min-width: 1200px) {...} */
 
-.gridCap {
-	display: grid;
-	grid-template-columns: 20% 80%;
-	grid-template-areas: 'addrep feedrep' 'todo feedrep' 'todo feedrep';
-	gap: 5px;
-}
+
 
 .appTodo {
 	grid-area: todo;
@@ -130,14 +125,20 @@ body {
 	flex-direction: column;
 }
 
-@media only screen and (max-width: 768px) {
-	.gridCap {
-		grid-template-columns: 1fr 1fr;
-        grid-template-areas: 'addrep todo' 'feedrep feedrep' ;
-        justify-items: stretch;
-    }
+.gridCap {
+	display: grid;
+	grid-template-columns: 20% 80%;
+	grid-template-areas: 'addrep feedrep' 'todo feedrep' 'todo feedrep';
+	gap: 5px;
 }
 
+@media only screen and (max-width: 1024px) {
+	.gridCap {
+		grid-template-columns: 50% 50%;
+        grid-template-areas: 'addrep todo' 'feedrep feedrep' ;
+		}
+		
+}
 
 @media only screen and (max-width: 480px) {
 	.gridCap {
