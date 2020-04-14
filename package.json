@@ -23,7 +23,7 @@
     "uuid": "^3.4.0"
   },
   "scripts": {
-    "start": "npm start --prefix backend",
+    "start": "node ./backend/server",
     "startdev": "concurrently \"npm run server\" \"npm run dev\"",
     "dev": "react-scripts start",
     "server": "nodemon ./backend/server",
