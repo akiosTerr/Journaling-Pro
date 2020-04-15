@@ -23,7 +23,7 @@ app.get('/ping', (req, res) => {
 	return res.send('pong');
 });
 
-let uri = process.env.MONGODB_URI;
+let uri = process.env.REACT_APP_MONGODB_URI;
 
 //mongoose.set('debug', true);
 
