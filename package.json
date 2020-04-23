@@ -16,7 +16,8 @@
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "express-favicon": "^2.0.1",
-    "mongoose": "^5.9.3",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.9.9",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-router-dom": "^5.1.2",
@@ -26,13 +27,13 @@
   "scripts": {
     "start": "node ./backend/server",
     "startdev": "concurrently \"npm run server\" \"npm run dev\"",
+    "authsrv": "nodemon ./backend/authServer",
     "dev": "react-scripts start",
     "server": "nodemon ./backend/server",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
-  "proxy": "http://localhost:5000/",
   "eslintConfig": {
     "extends": "react-app"
   },

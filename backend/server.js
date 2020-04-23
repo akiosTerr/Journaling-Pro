@@ -2,14 +2,11 @@ const express = require('express');
 const cors = require('cors');
 const favicon = require('express-favicon');
 const mongoose = require('mongoose');
-const path = require('path');
 const dotenv = require('dotenv');
 
 if (process.env.NODE_ENV !== 'production') {
 	dotenv.config();
 }
-
-//{ path: __dirname + '/.env' }
 
 const app = express();
 const port = process.env.PORT || 5000;
@@ -41,6 +38,18 @@ connection
 	.on('error', (err) => {
 		console.log('Error: ', err);
 	});
+
+const authToken = (req, res, next) => {
+	const authHeader = req.headers['authorization'];
+	const token = authHeader && authHeader.split(' ')[1];
+	if (token == null) return res.sendStatus(401);
+
+	jwt.verify(token, process.env.REACT_APP_ACCESS_SECRET, (err, user) => {
+		if (err) return res.sendStatus(403);
+		req.user = user;
+		next();
+	});
+};
 
 app.use('/users', require('./routes/users'));
 app.use('/reports', require('./routes/reports'));
