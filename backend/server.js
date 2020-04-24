@@ -16,6 +16,7 @@ app.use(favicon('./build/favicon.ico'));
 //app.use(express.static('E:\\WEBDEV\\APPS\\journal-app-react'));
 app.use(express.static('./build'));
 app.use(express.json());
+
 app.get('/ping', (req, res) => {
 	return res.send('pong');
 });
@@ -38,18 +39,6 @@ connection
 	.on('error', (err) => {
 		console.log('Error: ', err);
 	});
-
-const authToken = (req, res, next) => {
-	const authHeader = req.headers['authorization'];
-	const token = authHeader && authHeader.split(' ')[1];
-	if (token == null) return res.sendStatus(401);
-
-	jwt.verify(token, process.env.REACT_APP_ACCESS_SECRET, (err, user) => {
-		if (err) return res.sendStatus(403);
-		req.user = user;
-		next();
-	});
-};
 
 app.use('/users', require('./routes/users'));
 app.use('/reports', require('./routes/reports'));

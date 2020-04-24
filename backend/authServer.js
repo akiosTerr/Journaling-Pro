@@ -1,15 +1,82 @@
 const express = require('express');
 const jwt = require('jsonwebtoken');
 const dotenv = require('dotenv');
-let User = require('./models/user.model');
+const bcrypt = require('bcrypt');
+const cors = require('cors');
+const mongoose = require('mongoose');
+const User = require('./models/user.model');
 
 if (process.env.NODE_ENV !== 'production') {
 	dotenv.config();
 }
 
 const app = express();
+app.use(cors());
 app.use(express.json());
 const port = process.env.AUTH_PORT || 4000;
+let uri = process.env.REACT_APP_MONGODB_URI;
+
+mongoose.connect(uri, {
+	useUnifiedTopology: true,
+	useNewUrlParser: true,
+	useCreateIndex: true,
+});
+const connection = mongoose.connection;
+
+connection
+	.once('open', () => {
+		console.log('mongoDB database connection established');
+	})
+	.on('error', (err) => {
+		console.log('Error: ', err);
+	});
+
+app.post('/login', async (req, res) => {
+	//console.log(req);
+	User.findOne({ username: req.body.username })
+		.then((user) => {
+			if (!user) {
+				const err = 'User not found';
+				res.status(404).send(err);
+				throw err;
+			} else {
+				return user;
+			}
+		})
+		.then(async (user) => {
+			let userPassword = user.password;
+			let userName = user.username;
+			let result = null;
+			try {
+				result = await bcrypt.compare(req.body.password, userPassword);
+			} catch (e) {
+				throw new Error(e);
+			}
+			if (result == null) {
+				res.status(503);
+				throw 'Could not validate password';
+			}
+			if (result == false) {
+				const err = 'Wrong Password';
+				res.status(401).send(err);
+				throw err;
+			} else {
+				const user = { username: userName };
+				const accessToken = generateAccessToken(user);
+				const refreshToken = jwt.sign(
+					user,
+					process.env.REACT_APP_REFRESH_SECRET
+				);
+				//res.json({ accessToken: accessToken, refreshToken: refreshToken });
+				res.set('Access-Control-Allow-Origin', 'http://localhost:3000');
+				res.append('set-cookie', `accessToken=${accessToken}`);
+				res.send(`Welcome ${user.username}`);
+			}
+		})
+		.catch((err) => {
+			console.log(err);
+		});
+});
 
 app.post('/token', (req, res) => {
 	const refreshToken = req.body.token;
@@ -27,51 +94,10 @@ app.delete('/logout', (req, res) => {
 	res.sendStatus(204);
 });
 
-app.post('/login', async (req, res) => {
-	console.log('hello?');
-
-	User.findOne({ username: req.body.username }, (err, userInfo) => {
-		console.log('hello again?');
-
-		if (err) {
-			console.log('and again?');
-			res.sendStatus(403);
-			return;
-		}
-		if (userInfo == null) {
-			console.log('User not found');
-			res.status(404).send('User Not Found');
-			return;
-		}
-
-		bcrypt.compare(req.body.password, userInfo.password, (err, result) => {
-			if (err) {
-				console.log(err);
-				res.status(403).send(err);
-				return;
-			}
-			if (result) {
-				console.log('Access Granted');
-				const username = req.body.username;
-				const user = { name: username };
-
-				const accessToken = generateAccessToken(user);
-				const refreshToken = jwt.sign(
-					user,
-					process.env.REACT_APP_REFRESH_SECRET
-				);
-				// store refresh token in DB, see references
-				res.json({ accessToken: accessToken, refreshToken: refreshToken });
-			} else {
-				console.log('wrong pass');
-				res.status(403).send('Access Denied');
-			}
-		});
-	});
-});
-
 function generateAccessToken(user) {
-	return jwt.sign(user, process.env.ACCESS_TOKEN_SECRET, { expiresIn: '2m' });
+	return jwt.sign(user, process.env.REACT_APP_ACCESS_SECRET, {
+		expiresIn: '2m',
+	});
 }
 
 app.listen(port, () => {

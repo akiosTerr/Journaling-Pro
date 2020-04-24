@@ -21,7 +21,7 @@ function Header() {
 			<Link className='navItem' to='/register'>
 				Register
 			</Link>
-			<a className='navItem icon' href='javascript:void(0);' onClick={checkui}>
+			<a className='navItem icon' href='' onClick={checkui}>
 				<i className='fa fa-bars'></i>
 			</a>
 		</div>
