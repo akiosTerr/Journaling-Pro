@@ -2,17 +2,17 @@ const router = require('express').Router();
 const authToken = require('./auth');
 let Todo = require('../models/todo.model');
 
-router.get('/', authToken, (req, res) => {
-	const username = req.user.username;
-	console.log('username:<% ' + username);
+router.get('/', (req, res) => {
+	//const username = req.user.username;
+	//console.log('username:<% ' + username);
 
 	Todo.find()
 		.then((todos) => res.json(todos))
 		.catch((err) => res.status(404).json('Error: ' + err));
 });
 
-router.post('/add', authToken, (req, res) => {
-	const username = req.user.username;
+router.post('/add', (req, res) => {
+	const username = 'akios'; // req.user.username;
 	const content = req.body.content;
 
 	const newTodo = new Todo({

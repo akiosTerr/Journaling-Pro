@@ -1,0 +1,51 @@
+.block {
+	margin: auto;
+	margin-top: 100px;
+	color: #646464;
+	background: lightgray;
+	border-radius: 10px;
+	padding: 10px;
+	display: block;
+	max-width: 404px;
+	min-width: 300px;
+}
+
+.loginform {
+	display: flex;
+	flex-direction: column;
+}
+
+.fieldBlock {
+    margin-bottom: 30px;
+}
+
+.label {
+	margin-bottom: 10px;
+}
+
+.item {
+	width: 90%;
+    padding: 5px 0px;
+}
+
+.fieldBlock p {
+    font-weight: 200;
+    position: absolute;
+}
+.empty { 
+   outline: solid red 1px;
+}
+
+.subbtn {
+	width: 150px;
+	padding: 5px 0px;
+	font-family: Arial, Helvetica, sans-serif;
+	margin: auto;
+	background: rgb(169, 1, 236);
+	color: white;
+	font-weight: 300;
+	font-size: 2em;
+	border: none;
+	border-radius: 20px;
+	cursor: pointer;
+}

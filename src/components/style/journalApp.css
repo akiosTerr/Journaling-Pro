@@ -27,7 +27,7 @@ body {
 
 .reportItem {
 	background-color: rgb(49, 49, 49);
-	padding: 15px 40px;
+	padding: 15px 30px;
 	color: rgb(255, 255, 255);
 	margin: 0.4em 0;
 }
@@ -127,12 +127,20 @@ body {
 
 .gridCap {
 	display: grid;
-	grid-template-columns: 20% 80%;
+	grid-template-columns: 30% 70%;
 	grid-template-areas: 'addrep feedrep' 'todo feedrep' 'todo feedrep';
 	gap: 5px;
 }
 
 @media only screen and (max-width: 1024px) {
+	.gridCap {
+		grid-template-columns: 30% 70%;
+		grid-template-areas: 'addrep feedrep' 'todo feedrep' 'todo feedrep';
+	}
+		
+}
+
+@media only screen and (max-width: 768px) {
 	.gridCap {
 		grid-template-columns: 50% 50%;
         grid-template-areas: 'addrep todo' 'feedrep feedrep' ;

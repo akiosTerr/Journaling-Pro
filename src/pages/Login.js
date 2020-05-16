@@ -1,27 +1,6 @@
 import React, { useState, useRef } from 'react';
+import '../components/style/authForm.css';
 import axios from 'axios';
-
-const marginstyle = {
-	margin: 'auto 2em',
-	color: 'white',
-};
-
-const formStyle = {
-	display: 'flex',
-	flexDirection: 'column',
-};
-
-const item = {
-	width: '50%',
-	marginBottom: '10px',
-	padding: '5px 0px',
-};
-
-const subbtn = {
-	width: '150px',
-	padding: '5px 0px',
-	cursor: 'pointer',
-};
 
 const Login = () => {
 	const [usercred, setusercred] = useState({ username: '', password: '' });
@@ -38,42 +17,38 @@ const Login = () => {
 	const submit = (e) => {
 		e.preventDefault();
 		axios
-			.post('http://localhost:4000/login/', usercred, {
-				credentials: 'same-origin',
-				mode: 'no-cors',
-				headers: {
-					'Access-Control-Allow-Origin': 'http://localhost:3000/',
-					Accept: 'application/json',
-					'Content-Type': 'application/json',
-				},
-				withCredentials: false,
-				crossdomain: true,
-			})
-			.then((res) => console.log(res.config))
+			.post('http://localhost:4000/login/', usercred)
+			.then((res) => console.log(res.headers))
 			.catch((err) => {
 				throw err;
 			});
 	};
 
 	return (
-		<div style={marginstyle}>
+		<div className={'block'}>
 			<h1 style={{ marginBottom: '20px' }}>Login</h1>
-			<form style={formStyle} onSubmit={submit}>
+			<form className='loginform' onSubmit={submit}>
+				<label className='label' htmlFor='username'>
+					username
+				</label>
 				<input
 					ref={usrInput}
 					onChange={onChange}
-					style={item}
+					className='item'
 					name='username'
 					type='text'
 					placeholder='username'></input>
+				<label className='label' htmlFor='password'>
+					password
+				</label>
 				<input
 					ref={usrPass}
 					onChange={onChange}
-					style={item}
+					className='item'
 					name='password'
 					type='text'
 					placeholder='password'></input>
-				<input style={subbtn} type='submit' value='Login'></input>
+				<input className='subbtn' type='submit' value='Login'></input>
 			</form>
 		</div>
 	);

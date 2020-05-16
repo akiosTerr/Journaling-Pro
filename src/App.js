@@ -3,7 +3,7 @@ import JournalApp from './components/journalApp';
 import Header from './components/layout/HeaderMain';
 import Login from './pages/Login';
 import Register from './pages/Register';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { BrowserRouter, Route } from 'react-router-dom';
 
 export default class App extends Component {
 	render() {

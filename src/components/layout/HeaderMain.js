@@ -12,7 +12,7 @@ function Header() {
 	return (
 		<div className='nav' ref={nav}>
 			<Link to='/'>
-				<img className='logo' src='Orange_lambda.png' alt='lambda' />
+				<img className='logo' src='JournalingProLOGO.png' alt='lambda' />
 				<h1 className='title'> Journaling Pro</h1>
 			</Link>
 			<Link className='navItem' to='/login'>
@@ -21,9 +21,9 @@ function Header() {
 			<Link className='navItem' to='/register'>
 				Register
 			</Link>
-			<a className='navItem icon' href='' onClick={checkui}>
+			<button className='navItem icon' onClick={checkui}>
 				<i className='fa fa-bars'></i>
-			</a>
+			</button>
 		</div>
 	);
 }
