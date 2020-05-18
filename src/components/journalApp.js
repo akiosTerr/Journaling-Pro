@@ -76,6 +76,10 @@ class App extends Component {
 		});
 	};
 
+	editReport = (id) => {
+		console.log(id);
+	};
+
 	render() {
 		return (
 			<>
@@ -85,6 +89,7 @@ class App extends Component {
 						<div className='grid-item reportFeed'>
 							<DayReports
 								delRep={this.delReport}
+								editRep={this.editReport}
 								reports={this.state.journalReports}
 							/>
 						</div>

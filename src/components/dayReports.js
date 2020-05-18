@@ -4,9 +4,10 @@ import PropTypes from 'prop-types';
 
 class DayReports extends Component {
 	render() {
-		return this.props.reports.map(itemRep => (
+		return this.props.reports.map((itemRep) => (
 			<ReportItem
 				delRep={this.props.delRep}
+				editRep={this.props.editRep}
 				key={itemRep.id}
 				report={itemRep}></ReportItem>
 		));
@@ -14,7 +15,7 @@ class DayReports extends Component {
 }
 
 DayReports.propTypes = {
-	reports: PropTypes.array.isRequired
+	reports: PropTypes.array.isRequired,
 };
 
 export default DayReports;
