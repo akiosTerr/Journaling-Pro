@@ -29,7 +29,7 @@ export default class AddReport extends Component {
 	};
 	render() {
 		return (
-			<form onSubmit={this.onSubmit} className='form-style grid-item'>
+			<form onSubmit={this.onSubmit} className='addReportForm grid-item'>
 				<p id='date-p'>{this.props.date}</p>
 				<p
 					id='emptNotifier'

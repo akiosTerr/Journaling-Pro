@@ -20,7 +20,7 @@ export default class AddTodo extends Component {
 				<input
 					type='text'
 					name='title'
-					maxLength='32'
+					maxLength='85'
 					className='addTodoTextInput'
 					ref={(todoInput) => {
 						this.todoInput = todoInput;

@@ -9,7 +9,10 @@ class ReportItem extends Component {
 				<div className='navRepItem'>
 					<span></span>
 					<h3>{date}</h3>
-					<button onClick={this.props.delRep.bind(this, id)} id='deletebtn'>
+					<button
+						title={'delete report'}
+						onClick={this.props.delRep.bind(this, id)}
+						id='deletebtn'>
 						X
 					</button>
 				</div>

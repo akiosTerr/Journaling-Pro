@@ -29,7 +29,7 @@
 
 
 .todoFlex {
-  background: rgb(209, 202, 202);
+  background: #a0a0a0;
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
@@ -41,10 +41,10 @@
 .todoItem{
   display: grid;
   grid-template-columns: 10% 80% 10%;
-  border: 2px black solid ;
-  background: rgb(18, 212, 255);
+  border: 1px black solid ;
+  background: #fff;
   font-weight: 500;
-  color: rgb(0, 0, 0);
+  color: #000;
   width: 90%;
   padding: 3px;
   margin: 5px auto;
@@ -52,10 +52,12 @@
 
 .todoItem p{
   line-height: 0.9;
-  justify-self: center;
-  text-align: justify;
+  justify-self: left;
+  text-align: left;
   margin: auto 0px;
   width: 80%;
+  line-break: auto;
+  word-wrap: break-word;
 }
 
 .cbox {
