@@ -1,9 +1,24 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import EditTextArea from './editTextArea';
 
 class ReportItem extends Component {
+	state = {
+		content: '',
+		showEditForm: false,
+	};
+
+	onChange = (e) => {
+		this.setState({ [e.target.name]: e.target.value });
+	};
+
+	toggleEdit = () => {
+		this.setState({ showEditForm: !this.state.showEditForm });
+	};
+
 	render() {
 		const { id, content, date } = this.props.report;
+
 		return (
 			<div className='reportItem'>
 				<div className='navRepItem'>
@@ -12,7 +27,7 @@ class ReportItem extends Component {
 					<div className='btn-gp'>
 						<button
 							title={'edit report'}
-							onClick={this.props.editRep.bind(this, id)}
+							onClick={this.toggleEdit}
 							id='editbtn'>
 							<i className='fa fa-ellipsis-v'></i>
 						</button>
@@ -24,7 +39,22 @@ class ReportItem extends Component {
 						</button>
 					</div>
 				</div>
-				<p>{content}</p>
+
+				{this.state.showEditForm ? (
+					<EditTextArea
+						toggleEdit={this.toggleEdit}
+						upd={(content) => {
+							this.props.editRep({
+								id,
+								content,
+							});
+							this.toggleEdit();
+						}}>
+						{content}
+					</EditTextArea>
+				) : (
+					<p>{content}</p>
+				)}
 			</div>
 		);
 	}

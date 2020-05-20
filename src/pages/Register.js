@@ -56,11 +56,11 @@ const Login = () => {
 					<input
 						ref={usrInput}
 						onChange={onChange}
-						className='item empty'
+						className='item'
 						name='username'
 						type='text'
 						placeholder=' john doe'></input>
-					<p style={{ color: 'red' }}>error: field empty</p>
+					{/* <p style={{ color: 'red' }}>error: field empty</p> */}
 				</div>
 				<div className='fieldBlock'>
 					<label className='label' htmlFor='email'>

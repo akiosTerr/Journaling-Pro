@@ -19,6 +19,21 @@ class App extends Component {
 		this.loadReports();
 	};
 
+	addReport = (content) => {
+		const newReport = {
+			username: 'Akios',
+			date: this.getDate(),
+			content,
+		};
+
+		axios
+			.post('http://localhost:5000/reports/add', newReport)
+			.then((res) => {
+				this.loadReports();
+			})
+			.catch((err) => console.log('Error: ', err));
+	};
+
 	loadReports = () => {
 		axios
 			.get('http://localhost:5000/reports/')
@@ -41,23 +56,24 @@ class App extends Component {
 			});
 	};
 
-	addReport = (content) => {
+	updateReport = (data) => {
+		const { id, content } = data;
 		const newReport = {
-			username: 'Akios',
-			date: this.getDate(),
 			content,
 		};
-
 		axios
-			.post('http://localhost:5000/reports/add', newReport)
+			.post('http://localhost:5000/reports/update/' + id, newReport)
 			.then((res) => {
 				console.log(res.data);
 				this.loadReports();
 			})
-			.catch((err) => console.log('Error: ', err));
+			.catch((err) => {
+				console.log('Error: ' + err);
+				return;
+			});
 	};
 
-	delReport = (id) => {
+	deleteReport = (id) => {
 		if (!window.confirm('Are you sure you wish to delete this item?')) {
 			return;
 		}
@@ -76,10 +92,6 @@ class App extends Component {
 		});
 	};
 
-	editReport = (id) => {
-		console.log(id);
-	};
-
 	render() {
 		return (
 			<>
@@ -88,8 +100,8 @@ class App extends Component {
 						<AddReport date={this.getDate()} addReport={this.addReport} />
 						<div className='grid-item reportFeed'>
 							<DayReports
-								delRep={this.delReport}
-								editRep={this.editReport}
+								delRep={this.deleteReport}
+								editRep={this.updateReport}
 								reports={this.state.journalReports}
 							/>
 						</div>

@@ -78,15 +78,21 @@ body {
 #report-text {
 	background: rgb(223, 223, 223);
 	color: rgb(0, 0, 0);
-	width: 90%;
-	height: 100px;
-	font-size: 1.2em;
+	width: 95%;
+	font-size: 1.5em;
 	margin: 2px auto;
 	line-height: 1.2em;
-	min-height: 190px;
 	resize: none;
 	border: 1px solid #ccc;
 	border-radius: 5px;
+}
+
+.smallTextArea {
+	height: 140px;
+}
+
+.bigTextArea {
+	height: 150px;
 }
 
 #date-p {
@@ -100,34 +106,38 @@ body {
 #emptNotifier {
 	display: none;
 	margin: 5px auto;
+	font-weight: 400;
 	text-align: center;
+	padding: 5px;
 	width: 150px;
-	border-radius: 20px;
-	background-color: red;
+	color: red;
+	border: 1px solid white;
 }
 
 #subbtn {
 	background-color: rgb(219, 42, 11);
 	color: white;
-	margin: 1em auto;
+	margin: 0.5em auto;
 	padding: 10px 20px;
-	width: 50%;
+	width: 30%;
 	border: none;
 	border-radius: 5px;
 	cursor: pointer;
 }
 
 .appTodo {
+	border: 1px solid rgb(0, 0, 0);
 	grid-area: todo;
-	grid-row-start: 1;
-	grid-row-end: 3;
+	justify-self: center;
+	width: 70%;
 }
 
 .reportFeed {
 	grid-area: feedrep;
 	display: flex;
 	flex-direction: column;
-	width: 70%;
+	width: 85%;
+	justify-self: left;
 }
 
 .addReportForm {
@@ -135,8 +145,8 @@ body {
 	flex-direction: column;
 	border: 1px solid rgb(0, 0, 0);
 	background-color: #a0a0a0;
-	max-height: 300px;
-	width: 70%;
+	justify-self: left;
+	width: 85%;
 	grid-area: addrep;
 }
 
@@ -150,6 +160,10 @@ body {
 
 @media only screen and (max-width: 1024px) {
 
+	.appTodo{
+		width: 90%;
+	}
+
 	.addReportForm{
 		width: 90%;
 	}
@@ -160,7 +174,7 @@ body {
 	.gridCap {
 		display: grid;
 		grid-template-columns: 30% 70%;
-		grid-template-areas: 'todo addrep' 'todo feedrep' ;
+		grid-template-areas: 'todo addrep' '. feedrep' ;
 		gap: 5px;
 	}
 
@@ -168,38 +182,46 @@ body {
 
 @media only screen and (max-width: 768px) {
 
-	
+	.appTodo {
+		width: 90%;
+		justify-self: left;
+	}
 	.addReportForm {
-		display: flex;
-		flex-direction: column;
-		border: 1px solid rgb(0, 0, 0);
-		background-color: #a0a0a0;
-		max-height: 400px;
-		width: 100%;
+		width: 90%;
+		justify-self: right;
 	}
 	.reportFeed{
 		justify-self: center;
 	}
+	
 	.gridCap {
+		gap:0px;
+		row-gap: 5px;
 		grid-template-columns: 50% 50%;
         grid-template-areas: 'addrep todo' 'feedrep feedrep' ;
 		}
 		
 }
 
-@media only screen and (max-width: 480px) {
-	.gridCap {
-		grid-template-columns: 100%;
-        grid-template-areas: 'addrep ' 'todo' 'feedrep';
-        justify-items: stretch;
+@media only screen and (max-width: 530px) {
+
+	.appTodo {
+		width: 95%;
+		justify-self: center;
 	}
-	
+
 	.addReportForm{
-		width: 100%;
+		width: 95%;
+		justify-self: center;
 	}
 	.reportFeed{
-		width: 100%;
+		width: 95%;
 	}
+	.gridCap {
+		grid-template-columns: 100%;
+        grid-template-areas: 'todo''addrep''feedrep';
+	}
+	
 }
 
 

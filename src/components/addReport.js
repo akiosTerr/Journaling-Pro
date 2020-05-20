@@ -36,18 +36,18 @@ export default class AddReport extends Component {
 					ref={(emptNotifier) => {
 						this.emptyNotifier = emptNotifier;
 					}}>
-					cannot be empty
+					please fill the form
 				</p>
 				<textarea
 					onChange={this.onChange}
 					name='content'
 					placeholder='add day report...'
 					id='report-text'
+					className='bigTextArea'
 					ref={(textarea) => {
 						this.textAreaElement = textarea;
 					}}
 				/>
-
 				<input id='subbtn' type='submit' value='Submit'></input>
 			</form>
 		);

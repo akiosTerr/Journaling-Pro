@@ -16,7 +16,6 @@
 }
 
 .fieldBlock {
-    margin-bottom: 30px;
 }
 
 .label {
@@ -25,7 +24,8 @@
 
 .item {
 	width: 90%;
-    padding: 5px 0px;
+	padding: 5px 0px;
+	margin-bottom: 30px;
 }
 
 .fieldBlock p {

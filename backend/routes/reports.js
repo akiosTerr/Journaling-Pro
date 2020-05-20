@@ -39,7 +39,6 @@ router.delete('/:id', (req, res) => {
 router.post('/update/:id', (req, res) => {
 	Report.findById(req.params.id)
 		.then((report) => {
-			report.username = req.body.username;
 			report.content = req.body.content;
 
 			report

@@ -74,7 +74,7 @@ class AppTodo extends Component {
 
 	render() {
 		return (
-			<div className='todoFlex grid-item'>
+			<div className='todoFlex appTodo'>
 				<AddTodo addTodo={this.addTodo} />
 				<Todos
 					delTodo={this.deleteTodo}
