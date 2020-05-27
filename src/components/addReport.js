@@ -31,13 +31,14 @@ export default class AddReport extends Component {
 		return (
 			<form onSubmit={this.onSubmit} className='addReportForm grid-item'>
 				<p id='date-p'>{this.props.date}</p>
-				<p
-					id='emptNotifier'
-					ref={(emptNotifier) => {
-						this.emptyNotifier = emptNotifier;
-					}}>
-					please fill the form
-				</p>
+				<div className='emptNotifier'>
+					<p
+						ref={(emptNotifier) => {
+							this.emptyNotifier = emptNotifier;
+						}}>
+						please fill the form
+					</p>
+				</div>
 				<textarea
 					onChange={this.onChange}
 					name='content'

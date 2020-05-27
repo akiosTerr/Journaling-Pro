@@ -78,7 +78,7 @@ body {
 #report-text {
 	background: rgb(223, 223, 223);
 	color: rgb(0, 0, 0);
-	width: 95%;
+	width: 90%;
 	font-size: 1.5em;
 	margin: 2px auto;
 	line-height: 1.2em;
@@ -103,16 +103,22 @@ body {
 	margin: 3px;
 }
 
-#emptNotifier {
-	display: none;
-	margin: 5px auto;
-	font-weight: 400;
-	text-align: center;
-	padding: 5px;
-	width: 150px;
-	color: red;
-	border: 1px solid white;
+.emptNotifier {
+	display: block;
+	position: relative;
 }
+
+.emptNotifier p {
+	font-weight: 650;
+	margin: 0;
+	color: red;
+	left: 50%;
+	top: 130px;
+	position: absolute;               
+	transform: translate(-50%, -50%)
+}
+
+
 
 #subbtn {
 	background-color: rgb(219, 42, 11);
