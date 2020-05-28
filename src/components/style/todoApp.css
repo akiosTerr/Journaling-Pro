@@ -28,7 +28,8 @@
 }
 
 .todoFlex {
-	background: #a0a0a0;
+	background: inherit;
+	border: 1px solid white;
 	display: flex;
 	flex-direction: column;
 	flex-wrap: nowrap;
@@ -37,10 +38,10 @@
 .todoItem {
 	display: grid;
 	grid-template-columns: 10% 80% 10%;
-	border: 1px black solid;
-	background: #fff;
+	border: 1px solid white;
+	background: inherit;
 	font-weight: 500;
-	color: #000;
+	color: white;
 	width: 90%;
 	padding: 3px;
 	margin: 5px auto;

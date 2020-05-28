@@ -30,14 +30,24 @@ export default class AddReport extends Component {
 	render() {
 		return (
 			<form onSubmit={this.onSubmit} className='addReportForm grid-item'>
-				<p id='date-p'>{this.props.date}</p>
-				<div className='emptNotifier'>
-					<p
-						ref={(emptNotifier) => {
-							this.emptyNotifier = emptNotifier;
+				<div className='addReportHeader'>
+					<p id='date-p'>{this.props.date}</p>
+					<button
+						className='taskEmbedBtn'
+						onClick={() => {
+							console.log('click');
 						}}>
-						please fill the form
-					</p>
+						<h3>3</h3>
+						<i className=' fa fa-check'></i>
+					</button>
+				</div>
+
+				<div
+					ref={(emptNotifier) => {
+						this.emptyNotifier = emptNotifier;
+					}}
+					className='emptNotifier'>
+					<p>please fill the form</p>
 				</div>
 				<textarea
 					onChange={this.onChange}
