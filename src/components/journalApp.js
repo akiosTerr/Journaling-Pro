@@ -47,7 +47,6 @@ class App extends Component {
 						};
 					});
 					console.log(repArr);
-
 					this.setState({ journalReports: [...repArr.reverse()] });
 				}
 			})

@@ -8,10 +8,12 @@ export default class AddTodo extends Component {
 	onChange = (e) => this.setState({ [e.target.name]: e.target.value });
 
 	onSubmit = (e) => {
-		e.preventDefault();
-		this.props.addTodo(this.state.title);
-		this.setState({ title: '' });
-		this.todoInput.value = '';
+		if (e.key === 'Enter') {
+			this.props.addTodo(this.state.title);
+			this.setState({ title: '' });
+			this.todoInput.value = '';
+			e.preventDefault();
+		}
 	};
 
 	render() {
@@ -22,13 +24,13 @@ export default class AddTodo extends Component {
 					name='title'
 					maxLength='85'
 					className='addTodoTextInput'
+					onKeyDown={this.onSubmit}
 					ref={(todoInput) => {
 						this.todoInput = todoInput;
 					}}
 					placeholder='add Todo...'
 					onChange={this.onChange}
 				/>
-				<input type='submit' value='Submit' className='btnAdd' />
 			</form>
 		);
 	}

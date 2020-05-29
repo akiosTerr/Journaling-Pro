@@ -1,13 +1,13 @@
 .block {
 	margin: auto;
 	margin-top: 100px;
-	color: #646464;
-	background: lightgray;
+	color: inherit;
+	background: inherit;
+	border: 1px white solid;
 	border-radius: 10px;
 	padding: 10px;
 	display: block;
-	max-width: 404px;
-	min-width: 300px;
+	max-width: 400px;
 }
 
 .loginform {
@@ -16,23 +16,37 @@
 }
 
 .fieldBlock {
-	margin-bottom: 30px;
-}
-
-.label {
-	margin-bottom: 10px;
-}
-
-.item {
-	width: 90%;
-	padding: 5px 0px;
+	margin-bottom: 40px;
+	width: 100%;
 }
 
 .fieldBlock p {
-    font-weight: 200;
+	font-weight: 600;
+	color: red;
+	position: absolute;
 }
+
+.item {
+	width: 100%;
+	background-color: inherit;
+	color: inherit;
+	font-size: 1.3em;
+	border: 1px white solid;
+	padding: 5px 0px;
+	margin-top: 5px;
+}
+
+.item:focus{
+	outline: 0;
+    box-shadow: 0 0 3px #2ee0ff;
+}
+
+
+
 .empty { 
    outline: solid red 1px;
+   box-shadow: 0 0 4px red;
+
 }
 
 .subbtn {

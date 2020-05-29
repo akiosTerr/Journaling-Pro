@@ -50,21 +50,21 @@ const Login = () => {
 			<h1 style={{ marginBottom: '20px' }}>Register</h1>
 			<form className='loginform' onSubmit={submit}>
 				<div className='fieldBlock'>
-					<label className='label' htmlFor='username'>
-						username
+					<label className='mylabel' htmlFor='username'>
+						USERNAME
 					</label>
 					<input
 						ref={usrInput}
 						onChange={onChange}
-						className='item'
+						className='item '
 						name='username'
 						type='text'
 						placeholder=' john doe'></input>
-					<p style={{ color: 'red' }}>error: field empty</p>
+					{/* <p>empty field</p> */}
 				</div>
 				<div className='fieldBlock'>
-					<label className='label' htmlFor='email'>
-						email
+					<label className='mylabel' htmlFor='email'>
+						EMAIL
 					</label>
 					<input
 						ref={usrEmail}
@@ -75,8 +75,8 @@ const Login = () => {
 						placeholder=' johndoe@evilcorp.com'></input>
 				</div>
 				<div className='fieldBlock'>
-					<label className='label' htmlFor='password'>
-						password
+					<label className='mylabel' htmlFor='password'>
+						PASSWORD
 					</label>
 					<input
 						ref={usrPass}
@@ -87,8 +87,8 @@ const Login = () => {
 						placeholder=' password'></input>
 				</div>
 				<div className='fieldBlock'>
-					<label className='label' htmlFor='passwordconf'>
-						repeat password
+					<label className='mylabel' htmlFor='passwordconf'>
+						REPEAT PASSWORD
 					</label>
 					<input
 						ref={usrPass2}

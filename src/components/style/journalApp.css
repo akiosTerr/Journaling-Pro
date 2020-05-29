@@ -15,7 +15,8 @@
 /* @media only screen and (min-width: 1200px) {...} */
 
 body {
-	background: rgb(49, 49, 49);
+	background: #313131;
+	color:#fff;
 }
 
 .navRepItem {
@@ -36,8 +37,9 @@ body {
 	cursor: pointer;
 	border: none;
 }
+
 #editbtn {
-	color: #fff;
+	color: inherit;
 	background-color: inherit;
 	padding: 5px 10px;
 	font-size: 1.5em;
@@ -53,7 +55,7 @@ body {
 .reportItem {
 	background-color: inherit;
 	padding: 15px 30px;
-	color: rgb(255, 255, 255);
+	color: inherit;
 	margin: 0.4em 0;
 	border: 1px white solid;
 }
@@ -71,13 +73,18 @@ body {
 
 
 #report-text {
-	background: rgb(223, 223, 223);
-	color: rgb(0, 0, 0);
-	width: 97%;
+	background: inherit;
+	color: inherit;
+	width: 80%;
 	font-size: 1.5em;
 	margin: 2px auto;
 	line-height: 1.2em;
 	resize: none;
+}
+
+#report-text:focus {
+	outline: 0;
+    box-shadow: 0 0 3px #2ee0ff;
 }
 
 .taskEmbedBtn {
@@ -111,7 +118,7 @@ body {
 }
 
 #date-p {
-	color: rgb(255, 255, 255);
+	color: inherit;
 	font-size: 1.5em;
 	font-weight: bold;
 	text-align: center;
@@ -135,7 +142,7 @@ body {
 
 #subbtn {
 	background-color: rgb(219, 42, 11);
-	color: white;
+	color: inherit;
 	margin: 0.5em auto;
 	padding: 10px 20px;
 	width: 30%;
@@ -145,10 +152,13 @@ body {
 }
 
 .appTodo {
+	margin-top: 5px;
 	border: 1px solid rgb(0, 0, 0);
 	grid-area: todo;
 	justify-self: center;
 	width: 70%;
+	min-height: 5%;
+	height: fit-content;
 }
 
 .reportFeed {
@@ -179,7 +189,7 @@ body {
 .gridCap {
 	display: grid;
 	grid-template-columns: 30% 70%;
-	grid-template-areas: "todo addrep" ". feedrep" ;
+	grid-template-areas: "todo addrep" "todo feedrep" ;
 	gap: 5px;
 }
 
@@ -200,7 +210,7 @@ body {
 	.gridCap {
 		display: grid;
 		grid-template-columns: 30% 70%;
-		grid-template-areas: 'todo addrep' '. feedrep' ;
+		grid-template-areas: 'todo addrep' 'todo feedrep' ;
 		gap: 5px;
 	}
 
@@ -208,8 +218,15 @@ body {
 
 @media only screen and (max-width: 768px) {
 
+    #report-text{
+		width: 97%;
+	}
+
 	.appTodo {
 		width: 90%;
+		height: 244.31px;
+		overflow: hidden;
+		overflow-y: scroll;
 		justify-self: left;
 	}
 	.addReportForm {

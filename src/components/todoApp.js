@@ -42,45 +42,61 @@ class AppTodo extends Component {
 		this.loadTodos();
 	};
 
-	loadTodos = () => {
-		axios.get('http://localhost:5000/todos/').then((res) => {
-			if (res.data.length > 0) {
-				let todoArr = res.data.map((obj) => {
-					return {
-						id: obj._id,
-						content: obj.content,
-					};
-				});
-				console.log(todoArr);
-				this.setState({ todos: [...todoArr] });
-			}
-		});
-	};
-
 	addTodo = (content) => {
 		const newTodo = {
 			username: 'Akios',
-			content,
 			completed: false,
+			content,
 		};
 		axios
 			.post('http://localhost:5000/todos/add', newTodo)
 			.then((res) => {
-				console.log(res.data);
 				this.loadTodos();
 			})
 			.catch((err) => console.log('Error: ', err));
 	};
 
+	loadTodos = () => {
+		axios
+			.get('http://localhost:5000/todos/')
+			.then((res) => {
+				if (res.data.length > 0) {
+					let todoArr = res.data.map((obj) => {
+						return {
+							id: obj._id,
+							content: obj.content,
+						};
+					});
+					console.log(todoArr);
+					this.setState({ todos: [...todoArr] });
+				}
+				this.scrollList.scrollTop = this.scrollList.scrollHeight;
+			})
+			.catch((err) => {
+				console.log('Error: ', err);
+			});
+	};
+
 	render() {
 		return (
-			<div className='todoFlex appTodo'>
-				<AddTodo addTodo={this.addTodo} />
+			<div
+				ref={(element) => {
+					this.scrollList = element;
+				}}
+				className='todoFlex appTodo'>
 				<Todos
 					delTodo={this.deleteTodo}
 					toggleComplete={this.toggleComplete}
 					todos={this.state.todos}
 				/>
+				<AddTodo addTodo={this.addTodo} />
+				{this.state.todos.length === 0 ? (
+					<div id='emptyHeader'>
+						<h2>ADD A TODO TASK</h2>
+					</div>
+				) : (
+					<></>
+				)}
 			</div>
 		);
 	}

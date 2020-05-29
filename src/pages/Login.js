@@ -28,26 +28,30 @@ const Login = () => {
 		<div className={'block'}>
 			<h1 style={{ marginBottom: '20px' }}>Login</h1>
 			<form className='loginform' onSubmit={submit}>
-				<label className='label' htmlFor='username'>
-					username
-				</label>
-				<input
-					ref={usrInput}
-					onChange={onChange}
-					className='item'
-					name='username'
-					type='text'
-					placeholder='username'></input>
-				<label className='label' htmlFor='password'>
-					password
-				</label>
-				<input
-					ref={usrPass}
-					onChange={onChange}
-					className='item'
-					name='password'
-					type='text'
-					placeholder='password'></input>
+				<div className='fieldBlock'>
+					<label className='mylabel' htmlFor='username'>
+						username
+					</label>
+					<input
+						ref={usrInput}
+						onChange={onChange}
+						className='item'
+						name='username'
+						type='text'
+						placeholder=' username'></input>
+				</div>
+				<div className='fieldBlock'>
+					<label className='mylabel' htmlFor='password'>
+						password
+					</label>
+					<input
+						ref={usrPass}
+						onChange={onChange}
+						className='item'
+						name='password'
+						type='text'
+						placeholder=' password'></input>
+				</div>
 				<input className='subbtn' type='submit' value='Login'></input>
 			</form>
 		</div>
