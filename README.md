@@ -10,4 +10,6 @@ and register your progress.
 
 ### new UI style Update
 
-![new UI Style](https://i.imgur.com/YY06TbJ.png)
+![new UI Style](https://i.imgur.com/iOgVTcr.png)
+
+
