@@ -6,7 +6,7 @@ journaling-Pro offers a platform for you to store your history every day
 with an built-in todo list for you to keep track of your tasks
 and register your progress.
 
-![journaling UI](https://i.imgur.com/eHJzaDl.png)
+![journaling UI](https://i.imgur.com/PDyfZWt.png)
 
 ### new UI style Update
 
