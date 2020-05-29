@@ -7,3 +7,9 @@ with an built-in todo list for you to keep track of your tasks
 and register your progress.
 
 ![journaling UI](https://i.imgur.com/NVzxPw4.png)
+
+### new UI style Update
+
+![new UI Style](https://i.imgur.com/iOgVTcr.png)
+
+
