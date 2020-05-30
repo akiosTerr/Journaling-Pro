@@ -38,7 +38,7 @@ body {
 	border: none;
 }
 
-#editbtn {
+.btn {
 	color: inherit;
 	background-color: inherit;
 	padding: 5px 10px;
@@ -48,7 +48,24 @@ body {
 	border: none;
 }
 
-#deletebtn:hover, #editbtn:hover {
+.btn:focus {
+	outline:none;
+}
+
+.filter1 img:nth-child(2n+1) {
+	filter: invert(48%) sepia(13%) saturate(5207%) hue-rotate(130deg) brightness(95%) contrast(80%);
+}
+
+.filter1{
+	filter: invert(48%) sepia(13%) saturate(5207%) hue-rotate(180deg) brightness(95%) contrast(80%);
+}
+
+.imgicon {
+	width: 25px;
+	height: 25px;
+}
+
+#deletebtn:hover, .btn:hover {
 	opacity: 1;
 }
 

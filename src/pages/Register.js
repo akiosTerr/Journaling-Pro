@@ -51,7 +51,7 @@ const Login = () => {
 			<form className='loginform' onSubmit={submit}>
 				<div className='fieldBlock'>
 					<label className='mylabel' htmlFor='username'>
-						USERNAME
+						username
 					</label>
 					<input
 						ref={usrInput}
@@ -64,7 +64,7 @@ const Login = () => {
 				</div>
 				<div className='fieldBlock'>
 					<label className='mylabel' htmlFor='email'>
-						EMAIL
+						email
 					</label>
 					<input
 						ref={usrEmail}
@@ -76,7 +76,7 @@ const Login = () => {
 				</div>
 				<div className='fieldBlock'>
 					<label className='mylabel' htmlFor='password'>
-						PASSWORD
+						password
 					</label>
 					<input
 						ref={usrPass}
@@ -88,7 +88,7 @@ const Login = () => {
 				</div>
 				<div className='fieldBlock'>
 					<label className='mylabel' htmlFor='passwordconf'>
-						REPEAT PASSWORD
+						repeat password
 					</label>
 					<input
 						ref={usrPass2}

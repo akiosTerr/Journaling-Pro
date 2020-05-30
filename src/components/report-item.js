@@ -22,13 +22,18 @@ class ReportItem extends Component {
 		return (
 			<div className='reportItem'>
 				<div className='navRepItem'>
-					<span></span>
+					<button title={'lock report'} className='btn'>
+						<img
+							className='imgicon filter1'
+							src='password.png'
+							alt='lock'></img>
+					</button>
 					<h3>{date}</h3>
 					<div className='btn-gp'>
 						<button
 							title={'edit report'}
 							onClick={this.toggleEdit}
-							id='editbtn'>
+							className='btn'>
 							<i className='fa fa-ellipsis-v'></i>
 						</button>
 						<button
